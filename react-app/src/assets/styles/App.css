@@ -1,0 +1,149 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+:root{
+  --clr-primary: #007bff;
+  --clr-secondary: white;
+  --clr-tertiary: #555;
+  --clr-success: green;
+  --clr-error: red;
+}
+h1{
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+h2{
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+h3{
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+h4{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#root{
+  display: flex;
+  height: 100vh;
+}
+
+#root > header {
+  flex-basis: 300px;
+  background-color: var(--clr-secondary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#logo {
+  max-width: 240px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+/* main */
+
+main{
+  flex-grow: 1;
+}
+
+main > header{
+  height: 68px;
+  padding: 32px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: var(--clr-primary);
+}
+
+main > section{
+  padding: 24px;
+}
+
+/*  navbar login */
+.nav-bar ul li{
+  display: inline-block;
+  margin-right: 48px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--clr-secondary);
+  transition: color 0.7s; /* Yazı beyaza dönerken eklenen gecikme */
+}
+
+.nav-bar ul li:hover{
+  color: #ffd700; /* Yazı üstüne gelince değiştirilmek istenen renk */
+}
+
+/* nav-register */
+.container-navRegisterLogin ul{
+
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--clr-primary);
+  height: 240px;
+  margin-top: 24px;
+  align-items: flex-end;
+}
+.container-navRegisterLogin ul li{
+  transition: color 0.5s;
+}
+
+.container-navRegisterLogin ul li:hover{
+  color: #ffd700;
+}
+
+/* forms */
+
+form{
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 16px;
+  margin: 0 auto;
+  height: 400px;
+  margin: auto; /*Sayfayı yatayda ve dikeyde ortalar */
+  justify-content: center; /* Dikeyde ortala */
+}
+
+input[type="email"], input[type="taxId"], input[type="password"], input[type="repassword"], input[type="text"]{
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+button[type="submit"]{
+  height: 40px;
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+  font-size: 1.2rem;
+  font-weight: 400;
+  
+}
+button[type="submit"]:hover{
+  color: #ffd700;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.img-home{
+  max-width: 500px;
+  max-height: 500px;
+}
