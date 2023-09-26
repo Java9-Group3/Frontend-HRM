@@ -1,15 +1,17 @@
-const BASE_URL_AUTH = "http://localhost:8888/auth";
+const BASE_URL_AUTH = "http://localhost:9090/auth/register";
+const BASE_URL_AUTH_LOGIN = "http://localhost:9090/auth/login";
 
 // ==========Backend connection REGISTER==========
+
 // ==========Visitor REGISTER==========
 export function register(formData) {
-
+  console.log(formData);
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
   };
-  return fetch(`${BASE_URL_AUTH}/register`, options)
+  return fetch(`${BASE_URL_AUTH}/visitor`, options)
     .then((resp) => {
       if (!resp.ok) {
         throw new Error("Server Error");
@@ -32,20 +34,21 @@ export function registerManager(formDataCorp) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formDataCorp),
   };
-  return fetch(`${BASE_URL_AUTH}/register`, options)
-    .then((resp) => {
-      if (!resp.ok) {
-        throw new Error("Server Error");
-      }
-      console.log(resp);
-      return resp.json();
-    })
-    .then((data) => {
+  return fetch(`${BASE_URL_AUTH}/manager`, options)
+  .then((resp) => {
+        
+    console.log(resp);
+    return resp.json();
+  })
+  .then((data) => {
+    if(data.activationCode){
       return data;
-    })
-    .catch((err) => {
+    }
+    throw new Error(data.message)
+  })
+  .catch((err)=>{
       console.log(err.message);
-    });
+  });
 }
 
 // ==========Backend connection LOGIN==========
@@ -53,22 +56,23 @@ export function registerManager(formDataCorp) {
 export function login(creadentials) {
   //localhosta bağlan-> method:post -> username password <---> token dönecek
   // fetch kullanacagız alternatif: axios veya kütüphaneler: swr,react-query
-
+  console.log(creadentials);
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(creadentials),
   };
-  return fetch(`${BASE_URL_AUTH}/login`, options)
+  return fetch(`${BASE_URL_AUTH_LOGIN}`, options)
     .then((resp) => {
-        if(!resp.ok){
-            throw new Error("Server Error")
-        }
+        
       console.log(resp);
       return resp.json();
     })
     .then((data) => {
-      return data;
+      if(data.token){
+        return data;
+      }
+      throw new Error(data.message)
     })
     .catch((err)=>{
         console.log(err.message);

@@ -16,10 +16,10 @@ export function LoginVisitor() {
 
   function handleLoginSubmit(e) {
     e.preventDefault();
-    login(creadentials).then((token) => {
-      if (token) {
+    login(creadentials).then((object) => {
+      if (object) {
         //console.log(typeof token); //->> object geliyor JSONa çevircez.
-        localStorage.setItem("token", JSON.stringify(token));
+        localStorage.setItem("token", object.token);
         //console.log(localStorage.getItem("token")); //->kontrol: string gelmesi lazım
         navigate("/home");
       }

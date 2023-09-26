@@ -1,6 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export function NavBar() {
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  function handleClick(e){
+    e.preventDefault();
+    localStorage.clear("token");
+    navigate("/login/visitor");
+  }
   return (
     <section className="nav-bar">
       <nav>
@@ -11,9 +19,14 @@ export function NavBar() {
           <li>
             <NavLink to="/register/visitor">Register</NavLink>
           </li>
-          <li>
+          {
+            token ? <li>
+            <NavLink onClick={handleClick} to="/login/visitor">Logout</NavLink>
+          </li> : 
+            <li>
             <NavLink to="/login/visitor">Login</NavLink>
           </li>
+          }
         </ul>
       </nav>
     </section>

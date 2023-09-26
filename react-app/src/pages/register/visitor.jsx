@@ -8,7 +8,6 @@ export function RegisterVisitor() {
   const [formData, setFormData] = useState({
     email: "",
     name: "",
-    middleName: "",
     surname: "",
     password: "",
     repassword: "",
@@ -61,14 +60,6 @@ export function RegisterVisitor() {
           onChange={handleChange}
         />
         <input
-          type="text"
-          name="middleName"
-          id="middleName"
-          placeholder="Middle Name"
-          value={formData.middleName}
-          onChange={handleChange}
-        />
-        <input
           type="password"
           name="password"
           id="password"
@@ -77,7 +68,7 @@ export function RegisterVisitor() {
           onChange={handleChange}
         />
         <input
-          type="repassword"
+          type="password"
           name="repassword"
           id="repassword"
           placeholder="Re-password"

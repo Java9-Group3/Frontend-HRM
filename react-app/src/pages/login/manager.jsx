@@ -21,7 +21,7 @@ export function LoginManager() {
         //console.log(typeof token); //->> object geliyor JSONa çevircez.
         localStorage.setItem("token", JSON.stringify(token));
         //console.log(localStorage.getItem("token")); //->kontrol: string gelmesi lazım
-        navigate("/home");
+        navigate("/manager");
       }
     });
   }

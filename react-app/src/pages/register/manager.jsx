@@ -7,6 +7,8 @@ export function RegisterManager() {
   const navigate = useNavigate();
   const [formDataCorp, setFormDataCorp] = useState({
     email: "",
+    name: "",
+    surname: "",
     taxId: "",
     password: "",
     repassword: "",
@@ -43,6 +45,22 @@ export function RegisterManager() {
           onChange={handleChange}
         />
         <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          value={formDataCorp.name}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="surname"
+          id="surname"
+          placeholder="Surname"
+          value={formDataCorp.surname}
+          onChange={handleChange}
+        />
+        <input
           type="password"
           name="password"
           id="password"
@@ -51,7 +69,7 @@ export function RegisterManager() {
           onChange={handleChange}
         />
         <input
-          type="repassword"
+          type="password"
           name="repassword"
           id="repassword"
           placeholder="Re-password"
