@@ -1,9 +1,7 @@
 import "./assets/styles/reset.css";
 import "./assets/styles/App.css";
 
-import { LogoRegister } from "./components/Logo";
-import { LogoLogin } from "./components/Logo";
-import { LogoHome } from "./components/Logo";
+import { LogoHome, LogoPersonel, LogoRegister, LogoLogin } from "./components/Logo";
 
 import { Home } from "./pages/home/home";
 
@@ -24,6 +22,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { NavBar } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
+import { Personel } from "./pages/personel/personel";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -34,6 +33,7 @@ function App() {
   const shouldShowRegisterLogo = location.pathname.startsWith("/register");
   // LogoHome'u sadece /home sayfasında göster
   const shouldShowHomeLogo = location.pathname.startsWith("/home");
+  const shouldShowPersonelLogo = location.pathname.startsWith("/personel");
 
   return (
     <>
@@ -41,6 +41,7 @@ function App() {
         {shouldShowLoginLogo && <LogoLogin />}
         {shouldShowRegisterLogo && <LogoRegister />}
         {shouldShowHomeLogo && <LogoHome />}
+        {shouldShowPersonelLogo && <LogoPersonel />}
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
       </header>
 
@@ -68,6 +69,9 @@ function App() {
             </Route>
 
             <Route path="/home" element={<Home />}></Route>
+            
+            <Route path="/personel" element={<Personel />}></Route>
+
           </Routes>
         </section>
       </main>

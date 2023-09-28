@@ -125,7 +125,7 @@ form{
   justify-content: center; /* Dikeyde ortala */
 }
 
-input[type="email"], input[type="taxId"], input[type="password"], input[type="repassword"], input[type="text"]{
+input[type="email"], input[type="taxId"], input[type="password"], input[type="repassword"], input[type="text"], input[type="tel"]{
   height: 40px;
   padding: 8px 16px;
   font-size: 1.1rem;
@@ -173,3 +173,4 @@ button[type="submit"]:hover{
   opacity: 65%;
   color: white;
 }
+

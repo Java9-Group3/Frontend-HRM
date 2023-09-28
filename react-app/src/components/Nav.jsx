@@ -90,3 +90,18 @@ export function NavLogin() {
     </section>
   );
 }
+
+// ????? ne nasıl kuruldu company ? personel ? yol ? endpoint falan ?
+export function NavPersonelToCompany() {
+  return (
+    <section className="nav-personel">
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="company/personel">Company</NavLink>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  );
+}

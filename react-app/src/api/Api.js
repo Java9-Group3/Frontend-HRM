@@ -1,5 +1,6 @@
 const BASE_URL_AUTH = "http://localhost:9090/auth/register";
 const BASE_URL_AUTH_LOGIN = "http://localhost:9090/auth/login";
+const BASE_URL_COMPANY_PERSONEL = "http://localhost:9091/company/personel";
 
 // ==========Backend connection REGISTER==========
 
@@ -63,6 +64,34 @@ export function login(creadentials) {
     body: JSON.stringify(creadentials),
   };
   return fetch(`${BASE_URL_AUTH_LOGIN}`, options)
+    .then((resp) => {
+        
+      console.log(resp);
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.token){
+        return data;
+      }
+      throw new Error(data.message)
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    });
+}
+
+// ==========Backend connection PERSONEL==========
+
+export function personelData(personelCredentials) {
+  //localhosta bağlan-> method:post -> username password <---> token dönecek
+  // fetch kullanacagız alternatif: axios veya kütüphaneler: swr,react-query
+  console.log(personelCredentials);
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(personelCredentials),
+  };
+  return fetch(`${BASE_URL_COMPANY_PERSONEL}`, options)
     .then((resp) => {
         
       console.log(resp);
