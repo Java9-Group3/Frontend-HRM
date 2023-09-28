@@ -1,7 +1,7 @@
 import "./assets/styles/reset.css";
 import "./assets/styles/App.css";
 
-import { LogoHome, LogoPersonel, LogoRegister, LogoLogin } from "./components/Logo";
+import { LogoHome, LogoPersonel, LogoRegister, LogoLogin, LogoAdmin } from "./components/Logo";
 
 import { Home } from "./pages/home/home";
 
@@ -11,20 +11,20 @@ import { RegisterManager } from "./pages/register/manager";
 import { LoginVisitor } from "./pages/login/visitor";
 import { LoginAdmin } from "./pages/login/admin";
 import { LoginManager } from "./pages/login/manager";
+import { LoginPersonel } from "./pages/login/personel";
 
-import { WorksAdmin } from "./pages/admin/works";
-import { DashboardAdmin } from "./pages/admin/dashboard";
+
+
 
 import { PersonelUpdate } from "./pages/personel/update";
+import { PersonelInfo } from "./pages/personel/personel";
 
 import { Routes, Route } from "react-router";
-import { ProtectedRouteForAdmin } from "./ProtectedRoute";
-import { ProtectedRouteForManager } from "./ProtectedRoute";
 
-import { NavBar, NavPersonel } from "./components/Nav";
+import { NavBar, NavPersonel, NavAdmin } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
-import { LoginPersonel } from "./pages/login/personel";
+import { Dashboard } from "./pages/admin/dashboard";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -35,6 +35,8 @@ function App() {
   const shouldShowRegisterLogo = location.pathname.startsWith("/register");
   // LogoHome'u sadece /home sayfasında göster
   const shouldShowHomeLogo = location.pathname.startsWith("/home");
+  const shouldShowLogoAdmin = location.pathname.startsWith("/admin")
+  const shouldShowAdminLogo = location.pathname.startsWith("/admin");
   const shouldShowPersonelLogo = location.pathname.startsWith("/personel");
   const shouldShowPersonelPage = location.pathname.startsWith("/personel");
 
@@ -45,8 +47,11 @@ function App() {
         {shouldShowRegisterLogo && <LogoRegister />}
         {shouldShowHomeLogo && <LogoHome />}
         {shouldShowPersonelLogo && <LogoPersonel />}
+        {shouldShowLogoAdmin && <LogoAdmin />}
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
+        {shouldShowAdminLogo && <NavAdmin />}
         {shouldShowPersonelPage && <NavPersonel />}
+
       </header>
 
       <main>
@@ -67,22 +72,17 @@ function App() {
               <Route path="personel" element={<LoginPersonel />} />
             </Route>
 
-            <Route path="/admin" element={<ProtectedRouteForAdmin />}>
-              <Route path="works" element={<WorksAdmin />} />
-              <Route path="dashboard" element={<DashboardAdmin />} />
-            </Route>
-
-            <Route path="/manager" element={<ProtectedRouteForManager />}>
-              <Route path="works" element={<WorksAdmin />} />
-              <Route path="dashboard" element={<DashboardAdmin />} />
-            </Route>
+            
 
             <Route path="/home" element={<Home />}></Route>
 
-            
-            <Route path="/personel/update" element={<PersonelUpdate />}>
-              <Route path="works" element={<WorksAdmin />} />
-              <Route path="dashboard" element={<DashboardAdmin />} />
+            <Route path="/personel">
+              <Route path="info" element={<PersonelInfo />} />
+              <Route path="update" element={<PersonelUpdate />} />
+            </Route>
+
+            <Route path="/admin">
+              <Route path="dashboard" element={<Dashboard />} />
             </Route>
 
           </Routes>
