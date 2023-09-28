@@ -85,3 +85,28 @@ export function LogoPersonel() {
     </NavLink>
   );
 }
+
+export function LogoAdmin() {
+  const style = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "700",
+    fontSize: "1.3rem",
+    padding: "18px",
+    color: "black",
+    textDecoration: "none", // Linkin altını çizme
+    backgroundColor: "var(--clr-primary)", // Arka plan rengi
+  };
+
+  const logoStyle = {
+    marginRight: "8px", // Logo ile yazı arasına boşluk eklemek için
+  };
+
+  return (
+    <NavLink to="/admin" className="logoPersonel" style={style}>
+      <img width="32px" src="/images/home.png" alt="" style={logoStyle} />
+      Admin
+    </NavLink>
+  );
+}

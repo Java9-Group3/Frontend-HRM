@@ -94,6 +94,23 @@ export function NavLogin() {
   );
 }
 
+export function NavAdmin() {
+  return (
+    <section className="nav-personel">
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/admin/confirm-manager">Confirm Manager</NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/confirm-comment">Confirm Comment</NavLink>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  );
+}
+
 // ????? ne nasıl kuruldu company ? personel ? yol ? endpoint falan ?
 export function NavPersonel() {
   return (
@@ -111,6 +128,9 @@ export function NavPersonel() {
             </li>
             <li>
               <NavLink to="/personel/info">Shift-Break Info</NavLink>
+            </li>
+            <li>
+              <NavLink to="/personel/update">Personel Update</NavLink>
             </li>
             <li><a href="#">fotograf</a></li>
           </ul>

@@ -11,14 +11,14 @@ export function PersonelUpdate() {
     surname: "",
     email: "",
     phone: "",
-    address: "",
     foto: null,
   });
 
   function handleChange(e) {
     setDataPersonel({ ...dataPersonel, [e.target.name]: e.target.value });
   }
-
+  
+/*
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     setDataPersonel({
@@ -26,6 +26,7 @@ export function PersonelUpdate() {
       foto: file,
     });
   };
+*/
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,18 +76,6 @@ export function PersonelUpdate() {
           value={dataPersonel.phone}
           onChange={handleChange}
         />
-        <textarea
-          maxLength={300}
-          name="address"
-          id="address"
-          placeholder="Address"
-          value={dataPersonel.address}
-          onChange={handleChange}
-        />
-        <label>
-          Fotoğraf:
-          <input type="file" accept="image/*" onChange={handleFileUpload} />
-        </label>
         <button type="submit">Update</button>
       </form>
     </section>

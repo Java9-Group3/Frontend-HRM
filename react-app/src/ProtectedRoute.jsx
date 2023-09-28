@@ -6,9 +6,9 @@ export function ProtectedRouteForAdmin(){
 
     // backendden gelecek token burada kullanılacak eğer token varsa works görüntülenir, eğer yoksa login sayfasına geri yönlendirilecek.
     
-    const token = localStorage.getItem("token");
+    //const token = localStorage.getItem("token");
 
-    return token ? <Outlet/> : <Navigate to="/login/admin"/>;
+    //return token ? <Outlet/> : <Navigate to="/home"/>;
 }
 
 export function ProtectedRouteForManager(){

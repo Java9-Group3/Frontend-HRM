@@ -1,6 +1,8 @@
 const BASE_URL_AUTH = "http://localhost:9090/api/v1/auth/register";
 const BASE_URL_AUTH_LOGIN = "http://localhost:9090/api/v1/auth/login";
 
+const BASE_URL_USERPROFILE= "http://localhost:9093/api/v1/user-profile";
+
 // ==========Backend connection REGISTER==========
 
 // ==========Visitor REGISTER==========
@@ -79,6 +81,8 @@ export function login(creadentials) {
     });
 }
 
+
+
 // ==========Backend connection PERSONEL==========
 
 export function personelData(personelCredentials) {
@@ -90,7 +94,7 @@ export function personelData(personelCredentials) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(personelCredentials),
   };
-  return fetch(`${BASE_URL_COMPANY_PERSONEL}`, options)
+  return fetch(`${BASE_URL_USERPROFILE}/update/personel`, options)
     .then((resp) => {
         
       console.log(resp);
@@ -107,13 +111,28 @@ export function personelData(personelCredentials) {
     });
 }
 
+export function getPersonelInfo(){
+  return fetch(`${BASE_URL_USERPROFILE}/personel/info`).then((resp)=>{
+    if(!resp.ok){
+      throw new Error("Server Error->getPersonelInfo");
+    }
+    return resp.json();
+  })
+  .then((data)=>{
+    return data;
+  })
+  .catch((err)=>{
+    console.log(err.message);
+  });
 
+}
 
+// ==========Backend connection ADMIN==========
 
-// admin için işlemler daha sonra admin için ayarlanacak
-/*
-export function getWorks(){
-  return fetch(`${BASE_URL_AUTH}/works`).then((resp )=>{
+// admin için işlemler comment onaylama ve manager onaylama ->> bakılacak
+
+export function getInActiveManagerList(){
+  return fetch(`${BASE_URL_USERPROFILE}/adminchangemanagerstatus"`).then((resp )=>{
     if(!resp.ok){
       throw new Error("Server Error")
     }
@@ -127,6 +146,7 @@ export function getWorks(){
   });
 }
 
+/*
 export function getWork(){
 
 }
@@ -140,3 +160,96 @@ export function addWork(){
   
 }
 */
+
+
+
+
+
+/**-------------------------------------------------------------COMPANY-PAGE/COMPANY-SERVICE--------------------------------------------------------------------*/
+/**1.ŞİRKET KAYDET:*/
+export const saveCompanyRequestDto = async (companyData) => {
+  try {
+    const response = await fetch(`${BASE_URL_COMPANY}/save`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(companyData),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error saving company:', error);
+    throw error;
+  }
+};
+/**2.ŞİRKET BİLGİLERİNİ GÖSTER:*/
+export const showCompanyInformation = async () => {
+  try {
+    const response = await fetch(`${BASE_URL_COMPANY}/save`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Şirket bilgileri alınırken bir hata oluştu: ', error);
+    throw error;
+  }
+};
+/**3.ŞİRKET'İN GENEL BİLGİLERİNİ GÖSTERİR*/
+export const findAllCompanyPreviewInformation = async () => {
+  try {
+    const response = await fetch('/api/company/preview');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Şirket önizleme bilgileri alınırken bir hata oluştu: ', error);
+    throw error;
+  }
+};
+
+/**4.ŞİRKET'İN DETAYLI BİLGİLERİNİ GÖSTERİR*/
+export const findCompanyDetailedInformation = async (companyId) => {
+  try {
+    const response = await fetch(`/api/company/${companyId}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Şirket ayrıntılı bilgileri alınırken bir hata oluştu: ', error);
+    throw error;
+  }
+};
+
+/**5.BÜTÜN ŞİRKETLERİ GETİRİR*/
+export const findAll = async () => {
+  try {
+    const response = await fetch('/api/companies');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Şirketler alınırken bir hata oluştu: ', error);
+    throw error;
+  }
+};
+
+/**6.ŞİRKET'İN İZİN GÜNLERİNİ GETİRİR*/
+export const getPersonnelCompanyInformation = async (companyId) => {
+  try {
+    const response = await fetch(`/api/personnel/${companyId}/company`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Personel şirket bilgileri alınırken bir hata oluştu: ', error);
+    throw error;
+  }
+};
+
+/**7.ŞİRKET VAR MI YOK MU KONTROL EDER*/
+export const doesCompanyExist = async (companyId) => {
+  try {
+    const response = await fetch(`/api/company/${companyId}/exists`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Şirket varlık kontrolü yapılırken bir hata oluştu: ', error);
+    throw error;
+  }
+};
