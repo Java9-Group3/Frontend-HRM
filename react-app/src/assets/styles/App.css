@@ -90,9 +90,12 @@ main > section{
   color: #ffd700; /* Yazı üstüne gelince değiştirilmek istenen renk */
 }
 
+/* navs */
+nav{
+  margin: 8px 0;
+}
 /* nav-register */
 .container-navRegisterLogin ul{
-
   display: flex;
   justify-content: space-evenly;
   font-size: 1.2rem;
@@ -110,6 +113,35 @@ main > section{
 .container-navRegisterLogin ul li:hover{
   color: #ffd700;
 }
+
+/* nav-personel */
+.nav-personel {
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.nav-personel ul {
+  list-style: none; /* Sırasız liste işaretlerini kaldırır */
+  padding: 0; /* Liste içi boşluğu kaldırır */
+}
+
+.nav-personel ul li {
+  border: 1px solid var(--clr-primary);
+  margin: 5px; /* İstediğiniz boşluk miktarını ayarlayın */
+  padding: 10px; /* İstediğiniz iç boşluk miktarını ayarlayın */
+  text-align: center; /* Metni ortala */
+  cursor: pointer; /* Farenin üzerine gelince el işareti göster */
+  /* Diğer stillendirmeler */
+}
+
+.nav-personel ul li:hover {
+  background-color: var(--clr-primary); /* Fare üzerine gelince arkaplan rengini değiştirin */
+  color: white; /* Fare üzerine gelince metin rengini değiştirin */
+}
+
 
 /* forms */
 
@@ -144,6 +176,7 @@ button[type="submit"]:hover{
   color: #ffd700;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 
 .container-home{
   background-image: url(./public/images/1.jpg);
