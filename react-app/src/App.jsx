@@ -71,6 +71,8 @@ function App() {
           </Routes>
         </section>
       </main>
+
+      <footer></footer>
     </>
   );
 }
