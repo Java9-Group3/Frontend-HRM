@@ -1,5 +1,5 @@
-const BASE_URL_AUTH = "http://localhost:9090/auth/register";
-const BASE_URL_AUTH_LOGIN = "http://localhost:9090/auth/login";
+const BASE_URL_AUTH = "http://localhost:9090/api/v1/auth/register";
+const BASE_URL_AUTH_LOGIN = "http://localhost:9090/api/v1/auth/login";
 const BASE_URL_COMPANY_PERSONEL = "http://localhost:9091/company/personel";
 
 // ==========Backend connection REGISTER==========
