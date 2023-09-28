@@ -85,6 +85,9 @@ export function NavLogin() {
           <li>
             <NavLink to="/login/manager">Manager Login</NavLink>
           </li>
+          <li>
+            <NavLink to="/login/personel">Personel Login</NavLink>
+          </li>
         </ul>
       </nav>
     </section>
@@ -92,16 +95,26 @@ export function NavLogin() {
 }
 
 // ????? ne nasıl kuruldu company ? personel ? yol ? endpoint falan ?
-export function NavPersonelToCompany() {
+export function NavPersonel() {
   return (
     <section className="nav-personel">
       <nav>
-        <ul>
-          <li>
-            <NavLink to="company/personel">Company</NavLink>
-          </li>
-        </ul>
-      </nav>
+          <ul>
+            <li>
+              <NavLink to="/personel">Personel Info</NavLink>
+            </li>
+            <li>
+              <NavLink to="/personel/info">Company Info</NavLink>
+            </li>
+            <li>
+              <NavLink to="/personel/info">Public Holidays Info</NavLink>
+            </li>
+            <li>
+              <NavLink to="/personel/info">Shift-Break Info</NavLink>
+            </li>
+            <li><a href="#">fotograf</a></li>
+          </ul>
+        </nav>
     </section>
   );
 }

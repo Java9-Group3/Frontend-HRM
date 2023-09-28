@@ -5,7 +5,6 @@ import { LogoHome, LogoPersonel, LogoRegister, LogoLogin } from "./components/Lo
 
 import { Home } from "./pages/home/home";
 
-import { RegisterAdmin } from "./pages/register/admin";
 import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
 
@@ -16,13 +15,16 @@ import { LoginManager } from "./pages/login/manager";
 import { WorksAdmin } from "./pages/admin/works";
 import { DashboardAdmin } from "./pages/admin/dashboard";
 
-import { Routes, Route } from "react-router";
-import { ProtectedRoute } from "./ProtectedRoute";
+import { PersonelUpdate } from "./pages/personel/update";
 
-import { NavBar } from "./components/Nav";
+import { Routes, Route } from "react-router";
+import { ProtectedRouteForAdmin } from "./ProtectedRoute";
+import { ProtectedRouteForManager } from "./ProtectedRoute";
+
+import { NavBar, NavPersonel } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
-import { Personel } from "./pages/personel/personel";
+import { LoginPersonel } from "./pages/login/personel";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -34,6 +36,7 @@ function App() {
   // LogoHome'u sadece /home sayfasında göster
   const shouldShowHomeLogo = location.pathname.startsWith("/home");
   const shouldShowPersonelLogo = location.pathname.startsWith("/personel");
+  const shouldShowPersonelPage = location.pathname.startsWith("/personel");
 
   return (
     <>
@@ -43,6 +46,7 @@ function App() {
         {shouldShowHomeLogo && <LogoHome />}
         {shouldShowPersonelLogo && <LogoPersonel />}
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
+        {shouldShowPersonelPage && <NavPersonel />}
       </header>
 
       <main>
@@ -52,7 +56,6 @@ function App() {
         <section>
           <Routes>
             <Route path="/register">
-              <Route path="admin" element={<RegisterAdmin />} />
               <Route path="visitor" element={<RegisterVisitor />} />
               <Route path="manager" element={<RegisterManager />} />
             </Route>
@@ -61,16 +64,26 @@ function App() {
               <Route path="admin" element={<LoginAdmin />} />
               <Route path="visitor" element={<LoginVisitor />} />
               <Route path="manager" element={<LoginManager />} />
+              <Route path="personel" element={<LoginPersonel />} />
             </Route>
 
-            <Route path="/admin" element={<ProtectedRoute />}>
+            <Route path="/admin" element={<ProtectedRouteForAdmin />}>
+              <Route path="works" element={<WorksAdmin />} />
+              <Route path="dashboard" element={<DashboardAdmin />} />
+            </Route>
+
+            <Route path="/manager" element={<ProtectedRouteForManager />}>
               <Route path="works" element={<WorksAdmin />} />
               <Route path="dashboard" element={<DashboardAdmin />} />
             </Route>
 
             <Route path="/home" element={<Home />}></Route>
+
             
-            <Route path="/personel" element={<Personel />}></Route>
+            <Route path="/personel/update" element={<PersonelUpdate />}>
+              <Route path="works" element={<WorksAdmin />} />
+              <Route path="dashboard" element={<DashboardAdmin />} />
+            </Route>
 
           </Routes>
         </section>
