@@ -118,7 +118,7 @@ export function NavPersonel() {
       <nav>
           <ul>
             <li>
-              <NavLink to="/personel">Personel Info</NavLink>
+              <NavLink to="/personel/info">Personel Info</NavLink>
             </li>
             <li>
               <NavLink to="/personel/info">Company Info</NavLink>

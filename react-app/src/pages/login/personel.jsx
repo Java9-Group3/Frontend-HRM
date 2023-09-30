@@ -19,6 +19,7 @@ export function LoginPersonel() {
     login(creadentials).then((object) => {
       if (object) {
         localStorage.setItem("token", object.token);
+        
         navigate("/personel");
       }
     });
