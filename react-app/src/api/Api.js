@@ -1,6 +1,6 @@
 const BASE_URL_AUTH = "http://localhost:9090/api/v1/auth/register";
 const BASE_URL_AUTH_LOGIN = "http://localhost:9090/api/v1/auth/login";
-
+const BASE_URL_COMPANY = "http://localhost:9091/api/v1/company"
 const BASE_URL_USERPROFILE= "http://localhost:9093/api/v1/user-profile";
 
 // ==========Backend connection REGISTER==========
@@ -132,7 +132,7 @@ export function getPersonelInfo(){
 // admin için işlemler comment onaylama ve manager onaylama ->> bakılacak
 
 export function getInActiveManagerList(){
-  return fetch(`${BASE_URL_USERPROFILE}/adminchangemanagerstatus"`).then((resp )=>{
+  return fetch(`${BASE_URL_AUTH}/confirm"`).then((resp )=>{
     if(!resp.ok){
       throw new Error("Server Error")
     }

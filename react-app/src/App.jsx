@@ -8,12 +8,7 @@ import { Home } from "./pages/home/home";
 import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
 
-import { LoginVisitor } from "./pages/login/visitor";
-import { LoginAdmin } from "./pages/login/admin";
-import { LoginManager } from "./pages/login/manager";
-import { LoginPersonel } from "./pages/login/personel";
-
-
+import { Login } from "./pages/login/login";
 
 
 import { PersonelUpdate } from "./pages/personel/update";
@@ -66,10 +61,7 @@ function App() {
             </Route>
 
             <Route path="/login">
-              <Route path="admin" element={<LoginAdmin />} />
-              <Route path="visitor" element={<LoginVisitor />} />
-              <Route path="manager" element={<LoginManager />} />
-              <Route path="personel" element={<LoginPersonel />} />
+              <Route path="login" element={<Login />} />
             </Route>
 
             <Route path="/home" element={<Home />}></Route>
