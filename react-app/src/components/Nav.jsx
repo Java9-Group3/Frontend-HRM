@@ -7,7 +7,7 @@ export function NavBar() {
   function handleClick(e){
     e.preventDefault();
     localStorage.clear("token");
-    navigate("/login/visitor");
+    navigate("/login/login");
   }
   return (
     <section className="nav-bar">
@@ -21,10 +21,10 @@ export function NavBar() {
           </li>
           {
             token ? <li>
-            <NavLink onClick={handleClick} to="/login/visitor">Logout</NavLink>
+            <NavLink onClick={handleClick} to="/login/login">Logout</NavLink>
           </li> : 
             <li>
-            <NavLink to="/login/visitor">Login</NavLink>
+            <NavLink to="/login/login">Login</NavLink>
           </li>
           }
         </ul>
@@ -80,13 +80,7 @@ export function NavLogin() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/login/visitor">Visitor Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login/manager">Manager Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login/personel">Personel Login</NavLink>
+            <NavLink to="/login/login">Login</NavLink>
           </li>
         </ul>
       </nav>

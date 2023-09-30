@@ -3,7 +3,7 @@ import { login } from "../../api/Api";
 import { useNavigate } from "react-router";
 import { NavLogin } from "../../components/Nav";
 
-export function LoginPersonel() {
+export function Login() {
   const navigate = useNavigate();
   const [creadentials, setCredentials] = useState({
     email: "",
@@ -18,9 +18,24 @@ export function LoginPersonel() {
     e.preventDefault();
     login(creadentials).then((object) => {
       if (object) {
+        //console.log(typeof token); //->> object geliyor JSONa çevircez.
         localStorage.setItem("token", object.token);
-        
-        navigate("/personel");
+        //console.log(localStorage.getItem("token")); //->kontrol: string gelmesi lazım
+        if(object.roles.includes("ADMIN")){
+          navigate("/admin");
+        }
+        else if(object.roles.includes("MANAGER")){
+          navigate("/manager")
+        }
+        else if(object.roles.includes("PERSONEL")){
+          navigate("/company")
+        }
+        else if(object.roles.includes("VISITOR")){
+          navigate("/home")
+        }
+        else{
+          navigate("/home");
+        }
       }
     });
   }
