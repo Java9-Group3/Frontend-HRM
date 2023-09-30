@@ -72,8 +72,6 @@ function App() {
               <Route path="personel" element={<LoginPersonel />} />
             </Route>
 
-            
-
             <Route path="/home" element={<Home />}></Route>
 
             <Route path="/personel">

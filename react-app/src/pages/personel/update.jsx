@@ -6,6 +6,7 @@ import "./personel.css"
 
 export function PersonelUpdate() {
   const navigate = useNavigate();
+
   const [dataPersonel, setDataPersonel] = useState({
     name: "",
     surname: "",
