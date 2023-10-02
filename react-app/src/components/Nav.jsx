@@ -94,7 +94,7 @@ export function NavAdmin() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/admin/confirm-manager">Confirm Manager</NavLink>
+            <NavLink to="/admin/pending-managers">Pending Managers</NavLink>
           </li>
           <li>
             <NavLink to="/admin/confirm-comment">Confirm Comment</NavLink>

@@ -1,7 +1,51 @@
-const BASE_URL_AUTH = "http://localhost:9090/api/v1/auth/register";
+const BASE_URL_AUTH = "http://localhost:9090/api/v1/auth";
 const BASE_URL_AUTH_LOGIN = "http://localhost:9090/api/v1/auth/login";
 const BASE_URL_COMPANY = "http://localhost:9091/api/v1/company"
 const BASE_URL_USERPROFILE= "http://localhost:9093/api/v1/user-profile";
+
+export function approveManager(authId) {
+  const approvedManager={
+    userId: authId,
+    action: true,
+    token: localStorage.getItem("token"), // dto.getToken olursa kullanılacak
+  }
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(approvedManager), // ChangeManagerStatusRequestDto'ya uygun olarak gönderiyoruz
+  };
+
+  return fetch(`http://localhost:9093/api/v1/user-profile/adminchangemanagerstatus/${localStorage.getItem("token")}`, options)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+      throw new Error(data.message);
+      return data; // İsteğin başarılı olup olmadığını kontrol etmek için kullanılabilir
+    })
+    .catch((err) => {
+      console.error('Error approving manager:', err);
+    });
+}
+
+export function getPendingManagers() {
+  return fetch(`${BASE_URL_AUTH}/pending-managers`)
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error('Server Error');
+      }
+      return resp.json();
+    })
+    .then((data) => {
+      return data; // Backend'den gelen verileri döndürüyoruz
+    })
+    .catch((err) => {
+      console.error('Error fetching pending managers:', err);
+      throw err;
+    });
+}
+
 
 // ==========Backend connection REGISTER==========
 
@@ -13,7 +57,7 @@ export function register(formData) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
   };
-  return fetch(`${BASE_URL_AUTH}/visitor`, options)
+  return fetch(`${BASE_URL_AUTH}/register/visitor`, options)
     .then((resp) => {
       if (!resp.ok) {
         throw new Error("Server Error");
@@ -36,7 +80,7 @@ export function registerManager(formDataCorp) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formDataCorp),
   };
-  return fetch(`${BASE_URL_AUTH}/manager`, options)
+  return fetch(`${BASE_URL_AUTH}/register/manager`, options)
   .then((resp) => {
         
     console.log(resp);
@@ -132,9 +176,9 @@ export function getPersonelInfo(){
 // admin için işlemler comment onaylama ve manager onaylama ->> bakılacak
 
 export function getInActiveManagerList(){
-  return fetch(`${BASE_URL_AUTH}/confirm"`).then((resp )=>{
+  return fetch(`${BASE_URL_AUTH}/confirm-account"`).then((resp )=>{
     if(!resp.ok){
-      throw new Error("Server Error")
+      throw new Error("Server Error-Cannot Get Inactive Manager List")
     }
     return resp.json();
   })

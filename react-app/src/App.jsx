@@ -19,7 +19,8 @@ import { Routes, Route } from "react-router";
 import { NavBar, NavPersonel, NavAdmin } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
-import { Dashboard } from "./pages/admin/dashboard";
+
+import Admin from "./pages/admin/admin";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -72,7 +73,7 @@ function App() {
             </Route>
 
             <Route path="/admin">
-              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="pending-managers" element={<Admin />} />
             </Route>
 
           </Routes>
