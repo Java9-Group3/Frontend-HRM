@@ -4,7 +4,17 @@ import "./assets/styles/App.css";
 import { LogoHome, LogoPersonel, LogoRegister, LogoLogin, LogoAdmin } from "./components/Logo";
 
 import { Home } from "./pages/home/home";
+//COMPANY*********************************************************
+import { ShowCompanyInformationTable } from "./pages/company/showCompanyInformation";
 
+import { ShowAllCompanyInformationTable } from "./pages/company/findAll";
+
+import { ShowDetailedCompanyInformationTable } from "./pages/company/findCompanyDetailedInformation";
+
+import {ShowPersonnelCompanyInformation } from "./pages/company/getPersonnelCompanyInformation";
+
+import { SaveCompanyRequestDto } from "./pages/company/saveCompanyRequestDto";
+//COMPANY**********************************************************
 import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
 
@@ -73,6 +83,19 @@ function App() {
 
             <Route path="/admin">
               <Route path="dashboard" element={<Dashboard />} />
+            </Route>
+
+            <Route path="/company">
+              <Route path="information" element=
+              {<ShowCompanyInformationTable />} />
+              <Route path="findAll" element=
+              {<ShowAllCompanyInformationTable />} />
+              <Route path="detailed" element=
+              {<ShowDetailedCompanyInformationTable />} />
+              <Route path="dates" element=
+              {<ShowPersonnelCompanyInformation />} />
+              <Route path="save" element=
+              {<SaveCompanyRequestDto />} />
             </Route>
 
           </Routes>
