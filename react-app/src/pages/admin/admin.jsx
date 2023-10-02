@@ -1,12 +1,47 @@
+import { useState, useEffect } from 'react';
 
+import { getPendingManagers, approveManager } from '../../api/Api';
 
+const Admin = () => {
+  const [pendingManagers, setPendingManagers] = useState([]);
 
-export function Dashboard(){
+  useEffect(() => {
+    // API'den bekleyen yöneticileri getir
+    getPendingManagers()
+      .then(data => setPendingManagers(data))
+      .catch(error => console.error('Error fetching pending managers:', error));
+  }, []);
 
-  
-  return <h1>admin dashboard</h1>
-}
+  const handleApproveManager = (authId) => {
+    // Yöneticiyi onayla
+    approveManager(authId)
+      .then(success => {
+        if (success) {
+          // Başarılı bir şekilde onaylandıktan sonra, listeyi güncelle
+          setPendingManagers(prevManagers => prevManagers.filter(manager => manager.authId !== authId));
+        } else {
+          console.error('Manager approval failed');
+        }
+      })
+      .catch(error => console.error('Error approving manager:', error));
+  };
+console.log(pendingManagers);
+  return (
+    <div>
+      <h1>Pending Managers</h1>
+      <ul>
+        {pendingManagers.map(manager => (
+          <li key={manager.authId}>
+            {`${manager.name} ${manager.surname}`}
+            <button onClick={() => handleApproveManager(manager.authId)}>Approve</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
+export default Admin;
 
 
 
