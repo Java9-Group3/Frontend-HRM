@@ -8,7 +8,7 @@ export function Home() {
   return (
     <div className="container-home">
       <section>
-        <h1>İnsan Kaynakları Yönetim Platformuna Hoşgeldiniz!</h1>
+        <h1>İnsan Kaynakları Yönetim Platformzzzzzzzzzzzzzuna Hoşgeldiniz!</h1>
         <h5>
           Bu platform, şirketlerin ihtiyaç duyduğu bilgi ve hizmetlere erişim
           sağlamak amacıyla oluşturulmuştur.

@@ -104,6 +104,7 @@ nav{
   color: var(--clr-primary);
   height: 240px;
   margin-top: 24px;
+  margin-bottom: 80px;
   align-items: flex-end;
 }
 .container-navRegisterLogin ul li{
@@ -152,7 +153,7 @@ form{
   text-align: center;
   gap: 16px;
   margin: 0 auto;
-  height: 400px;
+  height: 440px;
   margin: auto; /*Sayfayı yatayda ve dikeyde ortalar */
   justify-content: center; /* Dikeyde ortala */
 }
