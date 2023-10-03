@@ -6,12 +6,13 @@ import { NavRegister } from "../../components/Nav";
 export function RegisterManager() {
   const navigate = useNavigate();
   const [formDataCorp, setFormDataCorp] = useState({
-    email: "",
     name: "",
     surname: "",
-    taxId: "",
+    email: "",
     password: "",
     repassword: "",
+    taxId: "",
+    companyName: "",
   });
 
   function handleChange(e) {
@@ -36,14 +37,7 @@ export function RegisterManager() {
         </h2>
       </div>
       <form onSubmit={handleRegisterSubmit}>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          value={formDataCorp.email}
-          onChange={handleChange}
-        />
+        
         <input
           type="text"
           name="name"
@@ -77,6 +71,22 @@ export function RegisterManager() {
           onChange={handleChange}
         />
         <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          value={formDataCorp.email}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="companyName"
+          id="companyName"
+          placeholder="Company Name"
+          value={formDataCorp.companyName}
+          onChange={handleChange}
+        />
+        <input
           type="taxId"
           name="taxId"
           id="taxId"
@@ -84,7 +94,6 @@ export function RegisterManager() {
           value={formDataCorp.taxId}
           onChange={handleChange}
         />
-
         <button id="btn-register" type="submit">
           Register
         </button>

@@ -1,7 +1,13 @@
 import "./assets/styles/reset.css";
 import "./assets/styles/App.css";
 
-import { LogoHome, LogoPersonel, LogoRegister, LogoLogin, LogoAdmin } from "./components/Logo";
+import {
+  LogoHome,
+  LogoPersonel,
+  LogoRegister,
+  LogoLogin,
+  LogoAdmin,
+} from "./components/Logo";
 
 import { Home } from "./pages/home/home";
 //COMPANY*********************************************************
@@ -11,7 +17,7 @@ import { ShowAllCompanyInformationTable } from "./pages/company/findAll";
 
 import { ShowDetailedCompanyInformationTable } from "./pages/company/findCompanyDetailedInformation";
 
-import {ShowPersonnelCompanyInformation } from "./pages/company/getPersonnelCompanyInformation";
+import { ShowPersonnelCompanyInformation } from "./pages/company/getPersonnelCompanyInformation";
 
 import { SaveCompanyRequestDto } from "./pages/company/saveCompanyRequestDto";
 //COMPANY**********************************************************
@@ -19,7 +25,6 @@ import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
 
 import { Login } from "./pages/login/login";
-//check4
 
 import { PersonelUpdate } from "./pages/personel/update";
 import { PersonelInfo } from "./pages/personel/personel";
@@ -31,6 +36,7 @@ import { NavBar, NavPersonel, NavAdmin } from "./components/Nav";
 import { useLocation } from "react-router-dom";
 
 import Admin from "./pages/admin/admin";
+import RedirectPage from "./pages/redirect/redirect";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -41,7 +47,7 @@ function App() {
   const shouldShowRegisterLogo = location.pathname.startsWith("/register");
   // LogoHome'u sadece /home sayfasında göster
   const shouldShowHomeLogo = location.pathname.startsWith("/home");
-  const shouldShowLogoAdmin = location.pathname.startsWith("/admin")
+  const shouldShowLogoAdmin = location.pathname.startsWith("/admin");
   const shouldShowAdminLogo = location.pathname.startsWith("/admin");
   const shouldShowPersonelLogo = location.pathname.startsWith("/personel");
   const shouldShowPersonelPage = location.pathname.startsWith("/personel");
@@ -57,7 +63,6 @@ function App() {
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
         {shouldShowAdminLogo && <NavAdmin />}
         {shouldShowPersonelPage && <NavPersonel />}
-
       </header>
 
       <main>
@@ -75,6 +80,10 @@ function App() {
               <Route path="login" element={<Login />} />
             </Route>
 
+            <Route>
+                <Route path="/redirect" element={<RedirectPage/>} />
+            </Route>
+
             <Route path="/home" element={<Home />}></Route>
 
             <Route path="/personel">
@@ -87,18 +96,24 @@ function App() {
             </Route>
 
             <Route path="/company">
-              <Route path="information" element=
-              {<ShowCompanyInformationTable />} />
-              <Route path="findAll" element=
-              {<ShowAllCompanyInformationTable />} />
-              <Route path="detailed" element=
-              {<ShowDetailedCompanyInformationTable />} />
-              <Route path="dates" element=
-              {<ShowPersonnelCompanyInformation />} />
-              <Route path="save" element=
-              {<SaveCompanyRequestDto />} />
+              <Route
+                path="information"
+                element={<ShowCompanyInformationTable />}
+              />
+              <Route
+                path="findAll"
+                element={<ShowAllCompanyInformationTable />}
+              />
+              <Route
+                path="detailed"
+                element={<ShowDetailedCompanyInformationTable />}
+              />
+              <Route
+                path="dates"
+                element={<ShowPersonnelCompanyInformation />}
+              />
+              <Route path="save" element={<SaveCompanyRequestDto />} />
             </Route>
-
           </Routes>
         </section>
       </main>

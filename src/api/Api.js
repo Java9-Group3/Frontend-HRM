@@ -29,6 +29,32 @@ export function approveManager(authId) {
     });
 }
 
+export function rejectManager(authId) {
+  const approvedManager={
+    userId: authId,
+    action: false,
+    token: localStorage.getItem("token"), // dto.getToken olursa kullanılacak
+  }
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(approvedManager), // ChangeManagerStatusRequestDto'ya uygun olarak gönderiyoruz
+  };
+
+  return fetch(`http://localhost:9093/api/v1/user-profile/adminchangemanagerstatus/${localStorage.getItem("token")}`, options)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+      throw new Error(data.message);
+      return data; // İsteğin başarılı olup olmadığını kontrol etmek için kullanılabilir
+    })
+    .catch((err) => {
+      console.error('Error approving manager:', err);
+    });
+}
+
 export function getPendingManagers() {
   return fetch(`${BASE_URL_AUTH}/pending-managers`)
     .then((resp) => {
