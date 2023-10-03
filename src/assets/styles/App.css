@@ -1,0 +1,291 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'IBM Plex Mono', monospace;
+  filter: none;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+:root{
+  --clr-primary: #007bff;
+  --clr-secondary: white;
+  --clr-tertiary: #555;
+  --clr-success: green;
+  --clr-error: red;
+}
+
+h1{
+  font-size: 40px;
+  padding: 16px;
+}
+
+h2{
+  font-size: 32px;
+  padding: 16px;
+}
+
+h3{
+  font-size: 24px;
+  padding: 16px;
+}
+
+h4{
+  font-size: 20px;
+  padding: 16px;
+}
+
+#root{
+  display: flex;
+  height: 100vh;
+}
+
+#root > header {
+  flex-basis: 300px;
+  background-color: var(--clr-secondary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#logo {
+  max-width: 240px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+/* main */
+
+main{
+  flex-grow: 1;
+}
+
+main > header{
+  height: 68px;
+  padding: 32px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: var(--clr-primary);
+}
+
+main > section{
+  padding: 0px;
+}
+
+/*  navbar login */
+.nav-bar ul li{
+  display: inline-block;
+  margin-right: 48px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--clr-secondary);
+  transition: color 0.7s; /* Yazı beyaza dönerken eklenen gecikme */
+}
+
+.nav-bar ul li:hover{
+  color: #ffd700; /* Yazı üstüne gelince değiştirilmek istenen renk */
+}
+
+/* navs */
+nav{
+  margin: 8px 0;
+}
+/* nav-register */
+.container-navRegisterLogin ul{
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--clr-primary);
+  height: 240px;
+  margin-top: 24px;
+  align-items: flex-end;
+}
+.container-navRegisterLogin ul li{
+  transition: color 0.5s;
+}
+
+.container-navRegisterLogin ul li:hover{
+  color: #ffd700;
+}
+
+/* nav-personel */
+.nav-personel {
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.nav-personel ul {
+  list-style: none; /* Sırasız liste işaretlerini kaldırır */
+  padding: 0; /* Liste içi boşluğu kaldırır */
+}
+
+.nav-personel ul li {
+  border: 1px solid var(--clr-primary);
+  margin: 5px; /* İstediğiniz boşluk miktarını ayarlayın */
+  padding: 10px; /* İstediğiniz iç boşluk miktarını ayarlayın */
+  text-align: center; /* Metni ortala */
+  cursor: pointer; /* Farenin üzerine gelince el işareti göster */
+  /* Diğer stillendirmeler */
+}
+
+.nav-personel ul li:hover {
+  background-color: var(--clr-primary); /* Fare üzerine gelince arkaplan rengini değiştirin */
+  color: white; /* Fare üzerine gelince metin rengini değiştirin */
+}
+
+
+/* forms */
+
+form{
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 16px;
+  margin: 0 auto;
+  height: 400px;
+  margin: auto; /*Sayfayı yatayda ve dikeyde ortalar */
+  justify-content: center; /* Dikeyde ortala */
+}
+
+input[type="email"], input[type="taxId"], input[type="password"], input[type="repassword"], input[type="text"], input[type="tel"]{
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+button[type="submit"]{
+  height: 40px;
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+  font-size: 1.2rem;
+  font-weight: 400;
+  
+}
+button[type="submit"]:hover{
+  color: #ffd700;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.container-home{
+  background-image: url(./public/images/1.jpg);
+  background-size: cover;
+  height: 92.85vh;
+  padding-top: 65px;
+}
+
+.container-home section ul li, h5{
+  padding: 12px;
+  color: var(--clr-secondary);
+  font-weight: 700;
+  background-color: var(--clr-tertiary);
+  opacity: 65%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container-home h1{
+  font-weight: 700;
+  color: var(--clr-primary);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #007bff;
+  opacity: 65%;
+  color: white;
+}
+
+.companylist {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnCompanyContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnCompanyName {
+  opacity: 65%;
+  margin-top: 15px;
+  color: blue;
+  font-size: 28px;
+  width: 350px;
+  background-color: gray;
+  font-weight: bold;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: none;
+}
+
+/* Butonun hizalamasını ve boyutunu düzelten stil */
+.btnCompanyContainer .btnCompanyName {
+  align-self: flex-start; /* Sol kenara hizalar */
+  width: auto; /* İçeriğe göre genişlik ayarlar */
+  padding: 15px 40px; /* Yastıklamayı ayarlar */
+}
+
+.findCompany {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.findCompanyInput {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.findCompanybtn1 {
+  /* İlk butonun stilini burada ayarlayabilirsiniz */
+}
+
+.findCompanybtn2 {
+  /* İkinci butonun stilini burada ayarlayabilirsiniz */
+}
+
+.databaseCompany {
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.databaseCompany h1 {
+  font-size: 24px;
+  color: blue;
+}
+
+.databaseCompany hr {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.databaseCompany p {
+  font-size: 16px;
+  color: #333;
+}
