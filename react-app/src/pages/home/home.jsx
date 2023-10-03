@@ -11,7 +11,7 @@ export function Home() {
         <h1>İnsan Kaynakları Yönetim Platformuna Hoşgeldiniz!</h1>
         <h5>
           Bu platform, şirketlerin ihtiyaç duyduğu bilgi ve hizmetlere erişim
-          sağlamak amacıyla oluşturulmuştur.
+          sağlamak amacıyla oluşturulmuştur.qweasd
         </h5>
       </section>
       <section>
@@ -19,7 +19,7 @@ export function Home() {
         <ul>
           <li>
             Platformumuz, şirketlerin iş süreçlerini optimize etmek ve
-            verimliliği artırmak için tasarlanmıştır.
+            verimliliği artırmak için tasarlanmıştır.qweasd
           </li>
           <li>
             Kullanıcı dostu arayüzü ve kolay kullanılabilirlik özellikleriyle,
@@ -156,9 +156,9 @@ function FindAllCompany() {
   const navigateTo = useNavigate();
 
   // Şirket düğmesine tıklandığında çalışacak fonksiyon
-  const handleClick = (value) => {
-    // Tıklanan şirketin ayrıntılarına yönlendirme yapın
-    navigateTo(`/companypage?value=${value}`);
+  const handleClick = (companyId) => {
+    // Tıklanan şirketin ID'sini kullanarak yönlendirme yapın
+    navigateTo(`/findCompanyDetailedInformation/${companyId}`);
   };
 
   useEffect(() => {
@@ -182,10 +182,10 @@ function FindAllCompany() {
 
   return (
     <div className="btnCompanyContainer">
-      <NavLink to="/findAllCompanyPreviewInformation">
+      <NavLink to="/findCompanyDetailedInformation">
         {companyData.map((obj) => (
           <button className="btnCompanyName" key={obj.id} onClick={() => handleClick(obj.id)}>
-            {obj.companyName}
+            {obj.companyDistrict}
           </button>
         ))}
       </NavLink>
@@ -231,3 +231,4 @@ function FindWithName() {
 }
 
 
+//
