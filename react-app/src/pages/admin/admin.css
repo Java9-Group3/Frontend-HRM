@@ -1,19 +1,19 @@
 /* admin.css */
 
 /* Pending Managers başlığı */
-.admin-panel-pending-managers h1 {
+.admin-panel-pending h1 {
     font-size: 32px;
     padding: 16px;
     color: var(--clr-primary); /* Başlık rengi */
   }
   
   /* Pending Managers listesi */
-  .admin-panel-pending-managers ul {
+  .admin-panel-pending ul {
     list-style: none;
     padding: 0;
   }
   
-  .admin-panel-pending-managers ul li {
+  .admin-panel-pending ul li {
     margin-bottom: 16px;
     border: 1px solid var(--clr-primary); /* Sınır rengi */
     padding: 10px;
@@ -23,7 +23,7 @@
   }
   
 /* Onay düğmesi */
-.admin-panel-pending-managers button.approve-btn {
+.admin-panel-pending button.approve-btn {
     background-color: var(--clr-success); /* Düğme arkaplan rengi */
     color: var(--clr-secondary); /* Düğme metin rengi */
     padding: 8px 16px;
@@ -32,13 +32,13 @@
     transition: background-color 0.3s;
 }
 
-.admin-panel-pending-managers button.approve-btn:hover {
+.admin-panel-pending button.approve-btn:hover {
     background-color: #FFC72C; /* Hover durumunda arkaplan rengi */
     color: var(--clr-secondary); /* Hover durumunda metin rengi */
 }
 
 /* Reddet düğmesi */
-.admin-panel-pending-managers button.reject-btn {
+.admin-panel-pending button.reject-btn {
     background-color: var(--clr-error); 
     color: var(--clr-secondary); 
     padding: 8px 16px;
@@ -47,7 +47,7 @@
     transition: background-color 0.3s;
 }
 
-.admin-panel-pending-managers button.reject-btn:hover {
+.admin-panel-pending button.reject-btn:hover {
     background-color: #FFC72C; 
     color: var(--clr-secondary); 
 }

@@ -1,13 +1,15 @@
 const BASE_URL_AUTH = "http://localhost:9090/api/v1/auth";
 const BASE_URL_AUTH_LOGIN = "http://localhost:9090/api/v1/auth/login";
+const BASE_URL_COMMENT = "http://localhost:9091/api/v1/comment"
 const BASE_URL_COMPANY = "http://localhost:9091/api/v1/company"
 const BASE_URL_USERPROFILE= "http://localhost:9093/api/v1/user-profile";
 
 export function approveManager(authId) {
+  const token = window.localStorage.getItem("token");
   const approvedManager={
     userId: authId,
     action: true,
-    token: localStorage.getItem("token"), // dto.getToken olursa kullanılacak
+    token: token, // dto.getToken olursa kullanılacak
   }
   const options = {
     method: 'PUT',
@@ -15,7 +17,7 @@ export function approveManager(authId) {
     body: JSON.stringify(approvedManager), // ChangeManagerStatusRequestDto'ya uygun olarak gönderiyoruz
   };
 
-  return fetch(`http://localhost:9093/api/v1/user-profile/adminchangemanagerstatus/${localStorage.getItem("token")}`, options)
+  return fetch(`http://localhost:9093/api/v1/user-profile/adminchangemanagerstatus/${approvedManager.token}`, options)
     .then((resp) => {
       return resp.json();
     })
@@ -30,18 +32,19 @@ export function approveManager(authId) {
 }
 
 export function rejectManager(authId) {
-  const approvedManager={
+  const token = window.localStorage.getItem("token");
+  const rejectManager={
     userId: authId,
     action: false,
-    token: localStorage.getItem("token"), // dto.getToken olursa kullanılacak
+    token: token, // dto.getToken olursa kullanılacak
   }
   const options = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(approvedManager), // ChangeManagerStatusRequestDto'ya uygun olarak gönderiyoruz
+    body: JSON.stringify(rejectManager), // ChangeManagerStatusRequestDto'ya uygun olarak gönderiyoruz
   };
 
-  return fetch(`http://localhost:9093/api/v1/user-profile/adminchangemanagerstatus/${localStorage.getItem("token")}`, options)
+  return fetch(`http://localhost:9093/api/v1/user-profile/adminchangemanagerstatus/${rejectManager.token}`, options)
     .then((resp) => {
       return resp.json();
     })
@@ -69,6 +72,77 @@ export function getPendingManagers() {
     .catch((err) => {
       console.error('Error fetching pending managers:', err);
       throw err;
+    });
+}
+
+export function approveComment(commentId) {
+  const token = window.localStorage.getItem("token");
+  const approvedComment={
+    commentId: commentId,
+    action: true,
+    token: token,
+    // token: localStorage.getItem("token"), // dto.getToken olursa kullanılacak
+  }
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(approvedComment),
+  };
+
+  return fetch(`http://localhost:9091/api/v1/comment/change-comment-status/${approvedComment.token}`, options)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+      throw new Error(data.message);
+      return data; // İsteğin başarılı olup olmadığını kontrol etmek için kullanılabilir
+    })
+    .catch((err) => {
+      console.error('Error approving manager:', err);
+    });
+}
+
+export function rejectComment(commentId) {
+  const token = window.localStorage.getItem("token");
+  const rejectedComment={
+    commentId: commentId,
+    action: false,
+    token: token, // dto.getToken olursa kullanılacak
+  }
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(rejectedComment),
+  };
+
+  return fetch(`http://localhost:9091/api/v1/comment/change-comment-status/${rejectedComment.token}`, options)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+      throw new Error(data.message);
+      return data;
+    })
+    .catch((err) => {
+      console.error('Error approving manager:', err);
+    });
+}
+
+export function getPendingComments() {
+  return fetch(`${BASE_URL_COMMENT}/pending-comments`)
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error('Server Error');
+      }
+      return resp.json();
+    })
+    .then((data) => {
+      return data; // Backend'den gelen verileri döndürüyoruz
+    })
+    .catch((err) => {
+      console.log('Error fetching pending managers:', err);
     });
 }
 

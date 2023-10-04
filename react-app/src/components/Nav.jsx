@@ -88,16 +88,20 @@ export function NavLogin() {
   );
 }
 
-export function NavAdmin() {
+export function NavAdmin({setAktivePage}) {
+    function handleClick(e){
+      e.preventDefault();
+      setAktivePage(e.target.name);
+    }
   return (
     <section className="nav-personel">
       <nav>
         <ul>
           <li>
-            <NavLink to="/admin/pending-managers">Pending Managers</NavLink>
+            <NavLink to="/admin/pending-managers" name="pending-managers" onClick={handleClick}>Pending Managers</NavLink>
           </li>
           <li>
-            <NavLink to="/admin/confirm-comment">Confirm Comment</NavLink>
+            <NavLink to="/admin/change-comment-status" name="pending-comments" onClick={handleClick}>Pending Comments</NavLink>
           </li>
         </ul>
       </nav>
