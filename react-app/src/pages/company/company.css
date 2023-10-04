@@ -1,0 +1,35 @@
+/* Stil dosyası: company-info.css */
+
+.company-info-container {
+    max-width: 800px;
+    margin: 20px auto 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+  
+  .company-info-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .company-details p {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  
+  .company-details strong {
+    font-weight: bold;
+  }
+  
+  .company-details img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  /* İsteğe bağlı olarak diğer öğeleri de özelleştirebilirsiniz. */
+  

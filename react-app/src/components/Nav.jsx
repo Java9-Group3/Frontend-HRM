@@ -132,3 +132,18 @@ export function NavPersonel() {
     </section>
   );
 }
+
+export function NavManager() {
+  return (
+    <section className="nav-personel">
+      <nav>
+          <ul>
+            <li>
+              <NavLink to="/manager/save">Personel Kaydetme</NavLink>
+            </li>
+            <li><a href="#">fotograf</a></li>
+          </ul>
+        </nav>
+    </section>
+  );
+}
