@@ -31,6 +31,7 @@ import { NavBar, NavPersonel, NavAdmin } from "./components/Nav";
 import { useLocation } from "react-router-dom";
 
 import Admin from "./pages/admin/admin";
+import RedirectPage from "./pages/redirect/redirect";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -84,6 +85,10 @@ function App() {
 
             <Route path="/admin">
               <Route path="pending-managers" element={<Admin />} />
+            </Route>
+
+            <Route>
+                <Route path="/redirect" element={<RedirectPage/>} />
             </Route>
 
             <Route path="/company">

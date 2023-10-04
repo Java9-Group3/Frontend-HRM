@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-
-import { getPendingManagers, approveManager } from '../../api/Api';
+import { getPendingManagers, approveManager, rejectManager } from '../../api/Api';
+import "./admin.css"
 
 const Admin = () => {
   const [pendingManagers, setPendingManagers] = useState([]);
@@ -25,15 +25,35 @@ const Admin = () => {
       })
       .catch(error => console.error('Error approving manager:', error));
   };
-console.log(pendingManagers);
+
+  const handleRejectManager = (authId) => {
+    // Yöneticiyi reddet
+    rejectManager(authId)
+      .then(unsuccess => {
+        if (unsuccess) {
+          // Başarılı bir şekilde reddettikten sonra, listeyi güncelle
+          setPendingManagers(prevManagers => prevManagers.filter(manager => manager.authId !== authId));
+        } else {
+          console.error('Manager rejection failed');
+        }
+      })
+      .catch(error => console.error('Error rejection manager:', error));
+  };
+
+  console.log(pendingManagers);
+
   return (
-    <div>
+    <div className="admin-panel-pending-managers">
       <h1>Pending Managers</h1>
       <ul>
         {pendingManagers.map(manager => (
           <li key={manager.authId}>
             {`${manager.name} ${manager.surname}`}
-            <button onClick={() => handleApproveManager(manager.authId)}>Approve</button>
+            <span>Company Name: {manager.companyName}</span>
+            <span>Tax ID: {manager.taxId}</span>
+            <button className="approve-btn" onClick={() => handleApproveManager(manager.authId)}>Approve</button>
+            <button className="reject-btn" onClick={() => handleRejectManager(manager.authId)}>Reject</button>
+            
           </li>
         ))}
       </ul>
@@ -42,6 +62,7 @@ console.log(pendingManagers);
 };
 
 export default Admin;
+
 
 
 
