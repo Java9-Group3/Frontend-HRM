@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "./company.css";
+import "./manager.css";
 
 function CompanyInfo2() {
   const location = useLocation();
