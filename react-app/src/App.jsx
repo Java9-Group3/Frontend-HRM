@@ -31,6 +31,8 @@ import { NavBar, NavPersonel, NavAdmin } from "./components/Nav";
 import { useLocation } from "react-router-dom";
 
 import Admin from "./pages/admin/admin";
+import { useState } from "react";
+
 import RedirectPage from "./pages/redirect/redirect";
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
   const shouldShowPersonelLogo = location.pathname.startsWith("/personel");
   const shouldShowPersonelPage = location.pathname.startsWith("/personel");
 
+  const [aktivePage, setAktivePage] = useState(null);
+
   return (
     <>
       <header>
@@ -54,9 +58,9 @@ function App() {
         {shouldShowRegisterLogo && <LogoRegister />}
         {shouldShowHomeLogo && <LogoHome />}
         {shouldShowPersonelLogo && <LogoPersonel />}
-        {shouldShowLogoAdmin && <LogoAdmin />}
+        {shouldShowLogoAdmin && <LogoAdmin setAktivePage={setAktivePage} />}
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
-        {shouldShowAdminLogo && <NavAdmin />}
+        {shouldShowAdminLogo && <NavAdmin setAktivePage={setAktivePage}/>}
         {shouldShowPersonelPage && <NavPersonel />}
 
       </header>
@@ -83,8 +87,7 @@ function App() {
               <Route path="update" element={<PersonelUpdate />} />
             </Route>
 
-            <Route path="/admin">
-              <Route path="pending-managers" element={<Admin />} />
+            <Route path="/admin" element={<Admin aktivePage={aktivePage}/>}>
             </Route>
 
             <Route>

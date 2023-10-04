@@ -86,7 +86,12 @@ export function LogoPersonel() {
   );
 }
 
-export function LogoAdmin() {
+export function LogoAdmin({setAktivePage}) {
+  
+  function handleClick(){
+    setAktivePage(null);
+  }
+
   const style = {
     display: "flex",
     alignItems: "center",
@@ -104,7 +109,7 @@ export function LogoAdmin() {
   };
 
   return (
-    <NavLink to="/admin" className="logoPersonel" style={style}>
+    <NavLink to="/admin" onClick={handleClick} className="logoPersonel" style={style}>
       <img width="32px" src="/images/home.png" alt="" style={logoStyle} />
       Admin
     </NavLink>
