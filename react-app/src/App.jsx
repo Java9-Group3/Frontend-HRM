@@ -17,7 +17,8 @@ import { SaveCompanyRequestDto } from "./pages/manager/saveCompanyRequestDto";
 //COMPANY**********************************************************
 import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
-import { createPersonel } from "./pages/manager/personelSave";
+
+import { RegisterEmployeeFrm } from "./pages/manager/personelSave";
 
 import { Login } from "./pages/login/login";
 
@@ -112,7 +113,7 @@ function App() {
               <Route path="save" element=
               {<SaveCompanyRequestDto />} />
               <Route path="personelSave" element=
-              {<createPersonel/>} />
+              {<RegisterEmployeeFrm/>} />
             </Route>
 
           </Routes>
