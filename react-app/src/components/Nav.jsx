@@ -133,15 +133,31 @@ export function NavPersonel() {
   );
 }
 
+
+
 export function NavManager() {
   return (
     <section className="nav-personel">
       <nav>
           <ul>
             <li>
-              <NavLink to="/manager/save">Personel Kaydetme</NavLink>
+              <NavLink to="/manager/personelSave">Personel Ekle</NavLink>
             </li>
-            <li><a href="#">fotograf</a></li>
+            <li>
+              <NavLink to="/manager/personelList">Personel Listesi</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/expenses">Şirketin Senelik Kar-Zarar Bilgisi</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/expenseTotal">Şirketin Toplam Gider Bilgisi</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/deptInfo">Yaklaşan Ödeme Bilgileri</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/holidayInfo">Resmi Tatil Bilgileri</NavLink>
+            </li>
           </ul>
         </nav>
     </section>

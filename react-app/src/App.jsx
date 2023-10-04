@@ -5,19 +5,20 @@ import { LogoHome, LogoPersonel, LogoRegister, LogoLogin, LogoAdmin } from "./co
 
 import { Home } from "./pages/home/home";
 //COMPANY*********************************************************
-import { ShowCompanyInformationTable } from "./pages/company/showCompanyInformation";
+import { ShowCompanyInformationTable } from "./pages/manager/showCompanyInformation";
 
-import { ShowAllCompanyInformationTable } from "./pages/company/findAll";
+import { ShowAllCompanyInformationTable } from "./pages/manager/findAll";
 
-import { ShowDetailedCompanyInformationTable } from "./pages/company/findCompanyDetailedInformation";
+import { ShowDetailedCompanyInformationTable } from "./pages/manager/findCompanyDetailedInformation";
 
-import {ShowPersonnelCompanyInformation } from "./pages/company/getPersonnelCompanyInformation";
+import {ShowPersonnelCompanyInformation } from "./pages/manager/getPersonnelCompanyInformation";
 
-import { SaveCompanyRequestDto } from "./pages/company/saveCompanyRequestDto";
+import { SaveCompanyRequestDto } from "./pages/manager/saveCompanyRequestDto";
 //COMPANY**********************************************************
 import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
-import { createPersonel } from "./pages/personel/personelcreate";
+import { createPersonel } from "./pages/manager/personelSave";
+
 import { Login } from "./pages/login/login";
 
 
@@ -26,13 +27,13 @@ import { PersonelInfo } from "./pages/personel/personel";
 
 import { Routes, Route } from "react-router";
 
-import { NavBar, NavPersonel, NavAdmin } from "./components/Nav";
+import { NavBar, NavPersonel, NavAdmin, NavManager } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
 
 import Admin from "./pages/admin/admin";
 import RedirectPage from "./pages/redirect/redirect";
-import CompanyInfo2 from "./pages/company/companyinfo2";
+import CompanyInfo2 from "./pages/manager/companyinfo2";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -59,7 +60,7 @@ function App() {
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
         {shouldShowAdminLogo && <NavAdmin />}
         {shouldShowPersonelPage && <NavPersonel />}
-
+        {location.pathname.includes("/manager") && <NavManager />}
       </header>
 
       <main>
@@ -95,13 +96,8 @@ function App() {
             <Route>
             <Route path="/companyinfo2" element={<CompanyInfo2 />} />
             </Route>
-
-            <Route path="/manager">
-              <Route path="save" element=
-              {<createPersonel/>} />
-            </Route>
             
-            <Route path="/company">
+            <Route path="/manager">
               <Route path="information" element=
               {<ShowCompanyInformationTable />} />
               <Route path="findAll" element=
@@ -112,6 +108,8 @@ function App() {
               {<ShowPersonnelCompanyInformation />} />
               <Route path="save" element=
               {<SaveCompanyRequestDto />} />
+              <Route path="personelSave" element=
+              {<createPersonel/>} />
             </Route>
 
           </Routes>
