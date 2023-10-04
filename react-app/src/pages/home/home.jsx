@@ -6,6 +6,7 @@ export function Home() {
 
 
   return (
+    
     <div className="container-home">
       <section>
         <h1>İnsan Kaynakları Yönetim Platformuna Hoşgeldiniz!</h1>
@@ -156,9 +157,8 @@ function FindAllCompany() {
   const navigateTo = useNavigate();
 
   // Şirket düğmesine tıklandığında çalışacak fonksiyon
-  const handleClick = (companyId) => {
-    // Tıklanan şirketin ID'sini kullanarak yönlendirme yapın
-    navigateTo(`/findCompanyDetailedInformation/${companyId}`);
+  const handleClick = (companyName) => {
+    navigateTo(`/companyinfo?companyName=${companyName}`);
   };
 
   useEffect(() => {
@@ -182,13 +182,11 @@ function FindAllCompany() {
 
   return (
     <div className="btnCompanyContainer">
-      <NavLink to="/findCompanyDetailedInformation">
-        {companyData.map((obj) => (
-          <button className="btnCompanyName" key={obj.id} onClick={() => handleClick(obj.id)}>
-            {obj.companyDistrict}
-          </button>
-        ))}
-      </NavLink>
+      {companyData.map((obj) => (
+        <button className="btnCompanyName" key={obj.companyName} onClick={() => handleClick(obj.companyName)}>
+          {obj.companyName}
+        </button>
+      ))}
     </div>
   );
 }
@@ -231,4 +229,3 @@ function FindWithName() {
 }
 
 
-//
