@@ -147,7 +147,7 @@ function GetCompanyWith(companyName) {
       throw err;
     });
 }
-
+//qwe
 function FindAllCompany() {
   // Şirket verilerini ve hata durumunu saklayacak state'leri tanımlayın
   const [companyData, setCompanyData] = useState([]);
