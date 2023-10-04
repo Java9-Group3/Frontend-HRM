@@ -6,7 +6,7 @@ export function Home() {
 
 
   return (
-    
+
     <div className="container-home">
       <section>
         <h1>İnsan Kaynakları Yönetim Platformuna Hoşgeldiniz!</h1>
@@ -157,9 +157,15 @@ function FindAllCompany() {
   const navigateTo = useNavigate();
 
   // Şirket düğmesine tıklandığında çalışacak fonksiyon
-  const handleClick = (companyName) => {
-    navigateTo(`/companyinfo?companyName=${companyName}`);
+  // const handleClick = (companyName) => {
+  //   navigateTo(`/companyinfo?companyName=${companyName}`);
+  // };
+
+  const handleClick = (companyData) => {
+    // Şirket verilerini başka bir sayfaya iletmek için react-router'ın navigate işlevini kullanabilirsiniz.
+    navigateTo(`/companyinfo2`, { state: { companyData } });
   };
+
 
   useEffect(() => {
     // Şirket verilerini almak için API çağrısı yapın
@@ -183,7 +189,7 @@ function FindAllCompany() {
   return (
     <div className="btnCompanyContainer">
       {companyData.map((obj) => (
-        <button className="btnCompanyName" key={obj.companyName} onClick={() => handleClick(obj.companyName)}>
+        <button className="btnCompanyName" key={obj.companyName} onClick={() => handleClick(obj)}>
           {obj.companyName}
         </button>
       ))}

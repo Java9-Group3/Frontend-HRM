@@ -17,7 +17,7 @@ import { SaveCompanyRequestDto } from "./pages/company/saveCompanyRequestDto";
 //COMPANY**********************************************************
 import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
-
+import { createPersonel } from "./pages/personel/personelcreate";
 import { Login } from "./pages/login/login";
 
 
@@ -32,6 +32,7 @@ import { useLocation } from "react-router-dom";
 
 import Admin from "./pages/admin/admin";
 import RedirectPage from "./pages/redirect/redirect";
+import CompanyInfo2 from "./pages/company/companyinfo2";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -91,6 +92,15 @@ function App() {
                 <Route path="/redirect" element={<RedirectPage/>} />
             </Route>
 
+            <Route>
+            <Route path="/companyinfo2" element={<CompanyInfo2 />} />
+            </Route>
+
+            <Route path="/manager">
+              <Route path="save" element=
+              {<createPersonel/>} />
+            </Route>
+            
             <Route path="/company">
               <Route path="information" element=
               {<ShowCompanyInformationTable />} />
