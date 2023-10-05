@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { personelData } from "../../api/Api";
+import { getPersonelInfo2, personelData } from "../../api/Api";
 import "./personel.css"
 
 
 export function PersonelUpdate() {
   const navigate = useNavigate();
-
-  const [dataPersonel, setDataPersonel] = useState({
+  const token = window.localStorage.getItem("token");
+  const defaultPersonel = {
     name: "",
     surname: "",
     email: "",
-    phone: "",
-    foto: null,
-  });
+    password: "",
+    token: token,
+  };
+  const [dataPersonel, setDataPersonel] = useState({...defaultPersonel})
+
+  useEffect(()=>{
+    getPersonelInfo2(token).then(data=>setDataPersonel({...data, token:token}));
+  }, [])
 
   function handleChange(e) {
     setDataPersonel({ ...dataPersonel, [e.target.name]: e.target.value });
@@ -70,11 +75,11 @@ export function PersonelUpdate() {
           onChange={handleChange}
         />
         <input
-          type="tel"
-          name="phone"
-          id="phone"
-          placeholder="Phone"
-          value={dataPersonel.phone}
+          type="password"
+          name="password"
+          id="password"
+          placeholder="password"
+          value={dataPersonel.password}
           onChange={handleChange}
         />
         <button type="submit">Update</button>

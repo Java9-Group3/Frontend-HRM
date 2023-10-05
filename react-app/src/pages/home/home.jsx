@@ -12,7 +12,7 @@ export function Home() {
         <h1>İnsan Kaynakları Yönetim Platformuna Hoşgeldiniz!</h1>
         <h5>
           Bu platform, şirketlerin ihtiyaç duyduğu bilgi ve hizmetlere erişim
-          sağlamak amacıyla oluşturulmuştur.qweasd
+          sağlamak amacıyla oluşturulmuştur.
         </h5>
       </section>
       <section>
@@ -20,7 +20,7 @@ export function Home() {
         <ul>
           <li>
             Platformumuz, şirketlerin iş süreçlerini optimize etmek ve
-            verimliliği artırmak için tasarlanmıştır.qweasd
+            verimliliği artırmak için tasarlanmıştır.
           </li>
           <li>
             Kullanıcı dostu arayüzü ve kolay kullanılabilirlik özellikleriyle,
