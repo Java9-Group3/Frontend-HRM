@@ -230,11 +230,9 @@ export function login(creadentials) {
 // ==========Backend connection PERSONEL==========
 
 export function personelData(personelCredentials) {
-  //localhosta bağlan-> method:post -> username password <---> token dönecek
-  // fetch kullanacagız alternatif: axios veya kütüphaneler: swr,react-query
   console.log(personelCredentials);
   const options = {
-    method: "POST",
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(personelCredentials),
   };
@@ -254,6 +252,24 @@ export function personelData(personelCredentials) {
         console.log(err.message);
     });
 }
+
+export function getPersonelInfo2(token) { 
+  return fetch(`${BASE_URL_USERPROFILE}/user-info/${token}`)
+    .then((resp) => {
+        
+      console.log(resp);
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+        throw new Error(data.message)
+      return data;
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    });
+}
+
 
 export function getPersonelInfo(){
   return fetch(`${BASE_URL_USERPROFILE}/personel/info`).then((resp)=>{
