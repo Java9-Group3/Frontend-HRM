@@ -91,7 +91,7 @@ function App() {
 
             <Route path="/personel">
               <Route path="info" element={<PersonalInfo />} />
-              <Route path="infoCompany" element={<CompanyInfo />} />
+              <Route path="companyinfo" element={<CompanyInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
             </Route>
 
