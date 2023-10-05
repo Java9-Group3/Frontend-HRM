@@ -28,7 +28,7 @@ export function Login() {
           navigate("/manager")
         }
         else if(object.roles.includes("PERSONEL")){
-          navigate("/company")
+          navigate("/personel")
         }
         else if(object.roles.includes("VISITOR")){
           navigate("/home")

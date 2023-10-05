@@ -65,7 +65,7 @@ function App() {
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
         {shouldShowAdminLogo && <NavAdmin setAktivePage={setAktivePage}/>}
         {shouldShowPersonelPage && <NavPersonel />}
-        {location.pathname.includes("/manager") && <NavManager />}
+        {(location.pathname.includes("/manager") && !location.pathname.includes("/register/manager")) && <NavManager />}
       </header>
 
       <main>
