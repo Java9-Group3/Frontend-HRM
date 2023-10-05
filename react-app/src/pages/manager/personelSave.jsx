@@ -1,24 +1,34 @@
 import { useState } from "react";
 
 //aşağıya api/v1 gelebilir.
-const registerEmployeeUrl = "http://localhost:9092/user-profile/managerCreatePersonelUserProfile";
+const registerEmployeeUrl = "http://localhost:9093/api/v1/user-profile";
 
 // Backend Baglantisi
 
-function registerEmployeeMethod(employeeData) {
+function registerEmployeeMethod() {
+  const token=window.localStorage.getItem("token");
+  const createPersonel={
+    token: token,
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+  }
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(employeeData),
+    body: JSON.stringify(createPersonel),
   };
-  return fetch(registerEmployeeUrl, options)
+  return fetch(`${registerEmployeeUrl}/create-personal/${createPersonel.token}`,options)
     .then((resp) => {
       return resp.json();
     })
     .then((data) => {
       return data;
     })
-    .catch((err) => console.log(err.message));
+    .catch((err) => {
+      console.log(err.message);
+    });
 }
 
 // =============Sayfa Componentleri============
@@ -26,14 +36,14 @@ export function RegisterEmployeeFrm() {
   // const navigate= useNavigate();
 
   const [employeeData, setEmployeeData] = useState({
-    token: localStorage.getItem("token"),
+    // token: localStorage.getItem("token"),
     name: "",
     surname: "",
-    personalEmail: "",
-    salary: "",
+    email: "",
+    password: "",
   });
-  const [notificationStatus, setNotificationStatus] = useState(false);
-  const [error, setError] = useState(null);
+  // const [notificationStatus, setNotificationStatus] = useState(false);
+  // const [error, setError] = useState(null);
 
   function handleChange(e) {
     setEmployeeData({ ...employeeData, [e.target.name]: e.target.value });
@@ -44,23 +54,26 @@ export function RegisterEmployeeFrm() {
     registerEmployeeMethod(employeeData)
       .then((data) => {
         if (data) {
-          setNotificationStatus(true);
+          // setNotificationStatus(true);
+          console.log(data);
         }
 
-        if (data.fields) {
-          setError(data.fields[0]);
-        } else {
-          setError(data.message);
-        }
-        console.log(typeof error);
-      })
-      .catch((err) => console.log(err.message));
+      //   if (data.fields) {
+      //     setError(data.fields[0]);
+      //   } else {
+      //     setError(data.message);
+      //   }
+      //   console.log(typeof error);
+      // })
+      // .catch((err) => console.log(err.message)
+      });
   }
 
   return (
     <>
+      <h2>Personel Kaydet</h2>
       <form onSubmit={handleRegisterVisitorSubmit}>
-        <h2>Personel Kaydet</h2>
+        
 
         <input
           type="text"
@@ -82,28 +95,28 @@ export function RegisterEmployeeFrm() {
 
         <input
           type="email"
-          name="personalEmail"
-          id="personalEmail"
+          name="email"
+          id="email"
           placeholder="Email"
           onChange={handleChange}
-          value={employeeData.personalEmail}
+          value={employeeData.email}
         />
 
         <input
-          type="number"
-          name="salary"
-          id="salary"
-          placeholder="Maaş"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Şifre giriniz"
           onChange={handleChange}
-          value={employeeData.salary}
+          value={employeeData.password}
         />
 
         <button type="submit">Kaydet </button>
       </form>
-      {notificationStatus && <p>Kayit islemi basarili</p>}
+      {/* {notificationStatus && <p>Kayit islemi basarili</p>}
       {error !== null && (
         <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
-      )}
+      )} */}
     </>
   );
 }
