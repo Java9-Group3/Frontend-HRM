@@ -271,6 +271,23 @@ export function getPersonelInfo2(token) {
 }
 
 
+//getcompanyinfo
+export function getCompanyInfo(token) { 
+  return fetch(`${BASE_URL_USERPROFILE}/getPersonelProfileForUserProfileDashboard/${token}`)
+    .then((resp) => {
+      console.log(resp);
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+        throw new Error(data.message)
+      return data;
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    });
+}
+
 export function getPersonelInfo(){
   return fetch(`${BASE_URL_USERPROFILE}/personel/info`).then((resp)=>{
     if(!resp.ok){
@@ -286,6 +303,7 @@ export function getPersonelInfo(){
   });
 
 }
+
 
 // ==========Backend connection ADMIN==========
 
@@ -326,6 +344,10 @@ export function addWork(){
 
 
 /**-------------------------------------------------------------COMPANY-PAGE/COMPANY-SERVICE--------------------------------------------------------------------*/
+
+
+
+
 /**1.ŞİRKET KAYDET:*/
 export const saveCompanyRequestDto = async (companyData) => {
   try {

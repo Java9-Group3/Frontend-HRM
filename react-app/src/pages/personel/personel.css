@@ -64,3 +64,30 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.personal-info {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.personal-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.personal-info div {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.personal-info p {
+  margin: 5px 0;
+}
+
+.personal-info strong {
+  font-weight: bold;
+  margin-right: 5px;
+}

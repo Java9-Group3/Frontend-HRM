@@ -1,61 +1,39 @@
-import { useState, useEffect } from "react";
-
-function getCompanyUrl() {
-  return `http://localhost:9091/company/findbycompanyname?companyName=${localStorage.getItem("companyName")}`;
-}
-
-async function fetchCompanyInfo() {
-  const url = getCompanyUrl();
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Bir hata oluştu.");
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error.message);
-    throw error;
-  }
-}
+// CompanyInfo.js
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { getCompanyInfo } from "../../api/Api"; // API çağrısı buraya eklenmeli
+import "./company.css";
 
 export function CompanyInfo() {
-  const [companyInfo, setCompanyInfo] = useState(null);
+  const navigate = useNavigate();
+  const token = window.localStorage.getItem("token");
+  const defaultCompanyInfo = {
+    companyName: "",
+    companyDistrict: "",
+    companyCountry: "",
+    token: token,
+  };
+  const [companyInfo, setCompanyInfo] = useState({ ...defaultCompanyInfo });
 
   useEffect(() => {
-    async function getCompanyData() {
-      try {
-        const data = await fetchCompanyInfo();
-        setCompanyInfo(data);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
-
-    getCompanyData();
+    getCompanyInfo(token).then((data) => setCompanyInfo({ ...data, token: token }));
   }, []);
 
   return (
-    <div className="companyInfoPage">
-      <h1>Şirket Bilgileri</h1>
-      {companyInfo && (
-        <ul>
-          <li>
-            <div>
-              <h4>Şirket İsmi</h4>
-              <p>{companyInfo.companyName}</p>
-            </div>
-            <div>
-              <h4>Vergi No</h4>
-              <p>{companyInfo.taxNo}</p>
-            </div>
-            <div>
-              <h4>Şirket Açıklaması</h4>
-              <p>{companyInfo.description}</p>
-            </div>
-          </li>
-        </ul>
-      )}
-    </div>
+    <section className="company-info">
+      <h1>Company Information</h1>
+      <div>
+        <p>
+          <strong>Company Name:</strong> {companyInfo.companyName}
+        </p>
+        <p>
+          <strong>Şehir:</strong> {companyInfo.companyDistrict}
+        </p>
+        <p>
+          <strong>Ülke:</strong> {companyInfo.companyCountry}
+        </p>
+        {/* Diğer bilgileri buraya ekleyebilirsiniz */}
+      </div>
+    </section>
   );
 }

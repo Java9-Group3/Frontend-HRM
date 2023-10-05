@@ -1,0 +1,31 @@
+/* companyinfo.css */
+
+.company-info {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .company-info div {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .company-info p {
+    margin: 5px 0;
+  }
+  
+  .company-info strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* Özel stillendirmeleri buraya ekleyebilirsiniz */
+  
