@@ -20,11 +20,15 @@ import { RegisterManager } from "./pages/register/manager";
 
 import { RegisterEmployeeFrm } from "./pages/manager/personelSave";
 
+
 import { Login } from "./pages/login/login";
 
-
+//personel **********************************************************
 import { PersonelUpdate } from "./pages/personel/update";
-import { PersonelInfo } from "./pages/personel/personel";
+
+import { PersonalInfo } from "./pages/personel/PersonalInfo";
+import { CompanyInfo } from "./pages/personel/companyInfo";
+
 
 import { Routes, Route } from "react-router";
 
@@ -86,7 +90,8 @@ function App() {
             <Route path="/home" element={<Home />}></Route>
 
             <Route path="/personel">
-              <Route path="info" element={<PersonelInfo />} />
+              <Route path="info" element={<PersonalInfo />} />
+              <Route path="infoCompany" element={<CompanyInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
             </Route>
 

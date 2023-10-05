@@ -119,13 +119,13 @@ export function NavPersonel() {
               <NavLink to="/personel/info">Personel Info</NavLink>
             </li>
             <li>
-              <NavLink to="/personel/info">Company Info</NavLink>
+              <NavLink to="/personel/infoCompany">Company Info</NavLink>
             </li>
             <li>
-              <NavLink to="/personel/info">Public Holidays Info</NavLink>
+              <NavLink to="/personel/holiday">Public Holidays Info</NavLink>
             </li>
             <li>
-              <NavLink to="/personel/info">Shift-Break Info</NavLink>
+              <NavLink to="/personel/shiftandbreaks">Shift-Break Info</NavLink>
             </li>
             <li>
               <NavLink to="/personel/update">Personel Update</NavLink>
