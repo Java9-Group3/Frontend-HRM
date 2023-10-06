@@ -10,7 +10,7 @@ export function NavBar() {
     navigate("/login/login");
   }
   return (
-    <section className="nav-bar">
+    <section className="nav-bar" id="navbar">
       <nav>
         <ul>
           <li>

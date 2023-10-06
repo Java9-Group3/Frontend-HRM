@@ -137,9 +137,9 @@ nav{
   /* Diğer stillendirmeler */
 }
 
-.nav-personel ul li:hover {
+.nav-personel nav ul li:hover {
   background-color: var(--clr-primary); /* Fare üzerine gelince arkaplan rengini değiştirin */
-  color: white; /* Fare üzerine gelince metin rengini değiştirin */
+  color: white!important; /* Fare üzerine gelince metin rengini değiştirin */
 }
 
 
@@ -198,13 +198,13 @@ button[type="submit"]:hover{
 
 .container-home h1{
   font-weight: 700;
-  color: var(--clr-primary);
+  color: var(--clr-secondary);
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: #007bff;
   opacity: 65%;
-  color: white;
+
 }
 
 .companylist {

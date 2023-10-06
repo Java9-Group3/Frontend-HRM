@@ -9,9 +9,10 @@ export function RegisterManager() {
     email: "",
     name: "",
     surname: "",
-    taxId: "",
     password: "",
     repassword: "",
+    companyName: "",
+    taxNumber: "",
   });
 
   function handleChange(e) {
@@ -77,11 +78,19 @@ export function RegisterManager() {
           onChange={handleChange}
         />
         <input
-          type="taxId"
-          name="taxId"
-          id="taxId"
-          placeholder="Tax Id Number"
-          value={formDataCorp.taxId}
+          type="text"
+          name="companyName"
+          id="companyName"
+          placeholder="Company Name"
+          value={formDataCorp.companyName}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="taxNumber"
+          id="taxNumber"
+          placeholder="Tax Number"
+          value={formDataCorp.taxNumber}
           onChange={handleChange}
         />
 
