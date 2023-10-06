@@ -57,12 +57,12 @@ p {
 
 a {
   font-size: 18px;
-  color: #007bff;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #ffd700;
+  transition: color 200ms;
 }
 
 .personal-info {
@@ -90,4 +90,9 @@ a:hover {
 .personal-info strong {
   font-weight: bold;
   margin-right: 5px;
+}
+
+#navbar.nav-bar ul li{
+  background-color: #007bff;
+  border: none;
 }

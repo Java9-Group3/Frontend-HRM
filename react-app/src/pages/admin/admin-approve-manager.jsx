@@ -60,7 +60,7 @@ const AdminApproveManagers = () => {
             <li key={manager.authId}>
               {`${manager.name} ${manager.surname}`}
               <span>Company Name: {manager.companyName}</span>
-              <span>Tax ID: {manager.taxId}</span>
+              <span>Tax Number: {manager.taxNumber}</span>
               <button
                 className="approve-btn"
                 onClick={() => handleApproveManager(manager.authId)}
