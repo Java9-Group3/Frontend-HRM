@@ -1,7 +1,7 @@
 import "./assets/styles/reset.css";
 import "./assets/styles/App.css";
 
-import { LogoHome, LogoPersonel, LogoRegister, LogoLogin, LogoAdmin } from "./components/Logo";
+import { LogoHome, LogoPersonel, LogoRegister, LogoLogin, LogoAdmin, LogoManager } from "./components/Logo";
 
 import { Home } from "./pages/home/home";
 //COMPANY*********************************************************
@@ -38,9 +38,9 @@ import { useLocation } from "react-router-dom";
 
 import Admin from "./pages/admin/admin";
 import { useState } from "react";
-
 import RedirectPage from "./pages/redirect/redirect";
 import CompanyInfo2 from "./pages/manager/companyinfo2";
+import { CompanyUpdate } from "./pages/manager/update-company-info";
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -55,6 +55,7 @@ function App() {
   const shouldShowAdminLogo = location.pathname.startsWith("/admin");
   const shouldShowPersonelLogo = location.pathname.startsWith("/personel");
   const shouldShowPersonelPage = location.pathname.startsWith("/personel");
+  const shouldShowManagerLogo = location.pathname.startsWith("/manager");
 
   const [aktivePage, setAktivePage] = useState(null);
 
@@ -65,6 +66,7 @@ function App() {
         {shouldShowRegisterLogo && <LogoRegister />}
         {shouldShowHomeLogo && <LogoHome />}
         {shouldShowPersonelLogo && <LogoPersonel />}
+        {shouldShowManagerLogo && <LogoManager />}
         {shouldShowLogoAdmin && <LogoAdmin setAktivePage={setAktivePage} />}
         <img id="logo" src="/images/logo-black.png" alt="Company Logo" />
         {shouldShowAdminLogo && <NavAdmin setAktivePage={setAktivePage}/>}
@@ -107,6 +109,7 @@ function App() {
             </Route>
             
             <Route path="/manager">
+              <Route path="update-company-info" element={<CompanyUpdate />} />
               <Route path="information" element=
               {<ShowCompanyInformationTable />} />
               <Route path="findAll" element=
