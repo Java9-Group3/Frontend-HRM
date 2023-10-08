@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 function getEmployeeInfoUrl() {
-  return `http://localhost:8080/shiftsandbreaks/shiftinfo?companyName=${localStorage.getItem("companyName")}`;
+  return `http://localhost:9092/shiftsandbreaks/shiftinfo?companyName=${localStorage.getItem("companyName")}`;
 }
 
 console.log(localStorage.getItem("companyName"))

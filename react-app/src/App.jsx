@@ -27,6 +27,7 @@ import { Login } from "./pages/login/login";
 import { PersonelUpdate } from "./pages/personel/update";
 
 import { PersonalInfo } from "./pages/personel/PersonalInfo";
+
 import { CompanyInfo } from "./pages/personel/companyInfo";
 
 

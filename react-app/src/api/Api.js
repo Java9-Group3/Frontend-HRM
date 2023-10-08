@@ -273,7 +273,7 @@ export function getPersonelInfo2(token) {
 
 //getcompanyinfo
 export function getCompanyInfo(token) { 
-  return fetch(`${BASE_URL_USERPROFILE}/getPersonelProfileForUserProfileDashboard/${token}`)
+  return fetch(`http://localhost:9093/api/v1/user-profile/show-personnel-information/${token}`)
     .then((resp) => {
       console.log(resp);
       return resp.json();
