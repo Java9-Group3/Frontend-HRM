@@ -1,38 +1,39 @@
-// CompanyInfo.js
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { getCompanyInfo } from "../../api/Api"; // API çağrısı buraya eklenmeli
-import "./company.css";
+import { getCompanyInfo } from "../../api/Api";
+import "./personel.css";
 
 export function CompanyInfo() {
-  const navigate = useNavigate();
   const token = window.localStorage.getItem("token");
-  const defaultCompanyInfo = {
+  const defaultPersonel = {
     companyName: "",
-    companyDistrict: "",
-    companyCountry: "",
+    wage: "",
+    department: "",
+    logo: "",
     token: token,
   };
-  const [companyInfo, setCompanyInfo] = useState({ ...defaultCompanyInfo });
+  const [dataPersonel, setDataPersonel] = useState({ ...defaultPersonel });
 
   useEffect(() => {
-    getCompanyInfo(token).then((data) => setCompanyInfo({ ...data, token: token }));
+    getCompanyInfo(token).then((data) => setDataPersonel({ ...data, token: token }));
   }, []);
 
   return (
-    <section className="company-info">
+    <section className="personal-info">
       <h1>Company Information</h1>
       <div>
         <p>
-          <strong>Company Name:</strong> {companyInfo.companyName}
+          <strong>companyName:</strong> {dataPersonel.companyName}
         </p>
         <p>
-          <strong>Şehir:</strong> {companyInfo.companyDistrict}
+          <strong>Your wage:</strong> {dataPersonel.wage}
         </p>
         <p>
-          <strong>Ülke:</strong> {companyInfo.companyCountry}
+          <strong>Your department:</strong> {dataPersonel.department}
         </p>
-        {/* Diğer bilgileri buraya ekleyebilirsiniz */}
+        <p>
+          <strong>logo:</strong> {dataPersonel.logo}
+        </p>
       </div>
     </section>
   );

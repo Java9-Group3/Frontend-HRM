@@ -4,7 +4,6 @@ import { getPersonelInfo2 } from "../../api/Api";
 import "./personel.css";
 
 export function PersonalInfo() {
-  const navigate = useNavigate();
   const token = window.localStorage.getItem("token");
   const defaultPersonel = {
     name: "",
