@@ -271,6 +271,8 @@ export function getPersonelInfo2(token) {
 }
 
 
+
+
 //getcompanyinfo
 export function getCompanyInfo(token) { 
   return fetch(`${BASE_URL_USERPROFILE}/getPersonelProfileForUserProfileDashboard/${token}`)

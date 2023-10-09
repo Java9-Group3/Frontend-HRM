@@ -9,7 +9,9 @@ import { ShowCompanyInformationTable } from "./pages/manager/showCompanyInformat
 
 import { ShowAllCompanyInformationTable } from "./pages/manager/findAll";
 
-import { ShowDetailedCompanyInformationTable } from "./pages/manager/findCompanyDetailedInformation";
+import Depts from "./pages/manager/Depts";
+
+import CompanyProfitLoss from "./pages/manager/CompanyProfitLoss"; 
 
 import {ShowPersonnelCompanyInformation } from "./pages/manager/getPersonnelCompanyInformation";
 
@@ -19,7 +21,7 @@ import { RegisterVisitor } from "./pages/register/visitor";
 import { RegisterManager } from "./pages/register/manager";
 
 import { RegisterEmployeeFrm } from "./pages/manager/personelSave";
-
+import CompanyTotalLoss from "./pages/manager/CompanyTotalLoss";
 
 import { Login } from "./pages/login/login";
 
@@ -114,10 +116,10 @@ function App() {
               {<ShowCompanyInformationTable />} />
               <Route path="findAll" element=
               {<ShowAllCompanyInformationTable />} />
-              <Route path="detailed" element=
-              {<ShowDetailedCompanyInformationTable />} />
-              <Route path="dates" element=
-              {<ShowPersonnelCompanyInformation />} />
+              <Route path="CompanyProfitLoss" element={<CompanyProfitLoss />} /> 
+              <Route path="CompanyTotalLoss" element=
+              {<CompanyTotalLoss />} />
+              <Route path="Depts" element={<Depts />} /> 
               <Route path="save" element=
               {<SaveCompanyRequestDto />} />
               <Route path="personelSave" element=

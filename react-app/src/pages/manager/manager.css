@@ -49,3 +49,108 @@
   align-items: center;
   color: var(--clr-primary);
 }
+
+/* company-profit-loss.css */
+
+.company-profit-loss {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.profit-loss-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.profit-loss-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header-row {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table-header-cell,
+.table-cell {
+  padding: 8px;
+  text-align: center;
+}
+
+.table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-row:hover {
+  background-color: #ddd;
+}
+
+/* company-total-loss.css */
+
+.company-total-loss {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  border: 1px solid #ccc; /* Tablo çerçevesi eklemek için */
+  padding: 10px;
+  background-color: #f2f2f2; /* Arka plan rengi eklemek için */
+}
+
+.total-loss-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px; 
+}
+
+.total-loss-amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff0000; 
+  padding: 5px; 
+  border: 2px solid #000; 
+  display: inline-block; 
+  background-color: #fff; 
+  border-radius: 5px; 
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+}
+
+/* depts.css */
+
+.depts {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.depts-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.depts-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.depts-table th,
+.depts-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.depts-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.depts-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.depts-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+
