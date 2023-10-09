@@ -49,3 +49,20 @@
   align-items: center;
   color: var(--clr-primary);
 }
+
+/* manager içindeki update-company-info sekmesi */
+.company-update form{
+  margin-bottom: 200px;
+  height: 80vh;
+}
+.company-update h1{
+  color: var(--clr-primary);
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: xx-large;
+}
+.company-update{
+  height: 90vh;
+  
+}
