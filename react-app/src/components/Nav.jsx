@@ -160,7 +160,7 @@ export function NavManager() {
               <NavLink to="/manager/Depts">Yaklaşan Ödeme Bilgileri</NavLink>
             </li>
             <li>
-              <NavLink to="/manager/holidayInfo">Resmi Tatil Bilgileri</NavLink>
+              <NavLink to="/manager/CompanyHolidays">Resmi Tatil Bilgileri</NavLink>
             </li>
           </ul>
         </nav>
