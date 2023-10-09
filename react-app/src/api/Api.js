@@ -289,6 +289,22 @@ export function getCompanyInfo(token) {
         console.log(err.message);
     });
 }
+export function getHolidays() {
+  return fetch(`${BASE_URL_COMPANY}/holidays`)
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error('Server Error');
+      }
+      return resp.json();
+    })
+    .then((data) => {
+      return data; // Backend'den gelen verileri döndürüyoruz
+    })
+    .catch((err) => {
+      console.error('Error fetching pending managers:', err);
+      throw err;
+    });
+}
 
 export function getPersonelInfo(){
   return fetch(`${BASE_URL_USERPROFILE}/personel/info`).then((resp)=>{

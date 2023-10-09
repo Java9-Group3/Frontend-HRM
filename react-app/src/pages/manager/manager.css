@@ -153,4 +153,40 @@
   background-color: #ddd;
 }
 
+/* CompanyHolidays.css */
+
+.company-holidays {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.holiday-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.manager-item {
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.holiday-name {
+  font-weight: bold;
+}
+
+.holiday-date {
+  font-style: italic;
+  color: #777;
+}
+
+.holiday-description {
+  margin-top: 5px;
+}
+
 

@@ -23,6 +23,10 @@ import { RegisterManager } from "./pages/register/manager";
 import { RegisterEmployeeFrm } from "./pages/manager/personelSave";
 import CompanyTotalLoss from "./pages/manager/CompanyTotalLoss";
 
+// import {CompanyHolidays} from "./pages/manager/CompanyHolidays";
+
+import CompanyHolidays from "./pages/manager/CompanyHolidays";
+
 import { Login } from "./pages/login/login";
 
 //personel **********************************************************
@@ -121,6 +125,7 @@ function App() {
               <Route path="CompanyTotalLoss" element=
               {<CompanyTotalLoss />} />
               <Route path="Depts" element={<Depts />} /> 
+              <Route path="CompanyHolidays" element={<CompanyHolidays />} />
               <Route path="save" element=
               {<SaveCompanyRequestDto />} />
               <Route path="personelSave" element=
