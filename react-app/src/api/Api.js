@@ -271,6 +271,8 @@ export function getPersonelInfo2(token) {
 }
 
 
+
+
 //getcompanyinfo
 export function getCompanyInfo(token) { 
   return fetch(`http://localhost:9093/api/v1/user-profile/show-personnel-information/${token}`)
