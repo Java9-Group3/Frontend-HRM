@@ -150,16 +150,16 @@ export function NavManager() {
               <NavLink to="/manager/personelList">Personel Listesi</NavLink>
             </li>
             <li>
-              <NavLink to="/manager/expenses">Şirketin Senelik Kar-Zarar Bilgisi</NavLink>
+              <NavLink to="/manager/CompanyProfitLoss">Şirketin Senelik Kar-Zarar Bilgisi</NavLink>
             </li>
             <li>
-              <NavLink to="/manager/expenseTotal">Şirketin Toplam Gider Bilgisi</NavLink>
+              <NavLink to="/manager/CompanyTotalLoss">Şirketin Toplam Gider Bilgisi</NavLink>
             </li>
             <li>
-              <NavLink to="/manager/deptInfo">Yaklaşan Ödeme Bilgileri</NavLink>
+              <NavLink to="/manager/Depts">Yaklaşan Ödeme Bilgileri</NavLink>
             </li>
             <li>
-              <NavLink to="/manager/holidayInfo">Resmi Tatil Bilgileri</NavLink>
+              <NavLink to="/manager/CompanyHolidays">Resmi Tatil Bilgileri</NavLink>
             </li>
             <li>
               <NavLink to="/manager/update-company-info">Update Company Info</NavLink>

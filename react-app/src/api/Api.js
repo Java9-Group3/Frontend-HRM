@@ -271,6 +271,8 @@ export function getPersonelInfo2(token) {
 }
 
 
+
+
 //getcompanyinfo
 export function getCompanyInfo(token) { 
   return fetch(`http://localhost:9093/api/v1/user-profile/show-personnel-information/${token}`)
@@ -285,6 +287,22 @@ export function getCompanyInfo(token) {
     })
     .catch((err)=>{
         console.log(err.message);
+    });
+}
+export function getHolidays() {
+  return fetch(`${BASE_URL_COMPANY}/holidays`)
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error('Server Error');
+      }
+      return resp.json();
+    })
+    .then((data) => {
+      return data; // Backend'den gelen verileri döndürüyoruz
+    })
+    .catch((err) => {
+      console.error('Error fetching pending managers:', err);
+      throw err;
     });
 }
 
