@@ -41,14 +41,14 @@ export function CompanyUpdate() {
   return (
     <section className="company-update">
       <h1>
-        Update Information
+        Update Company Information
       </h1>
       <form onSubmit={handleSubmit}>
       <input
           type="text"
           name="companyPhone"
           id="companyPhone"
-          placeholder="companyPhone"
+          placeholder="Company Phone"
           value={formDataCorp.companyPhone == null ? "":formDataCorp.companyPhone}
           onChange={handleChange}
         />
@@ -56,7 +56,7 @@ export function CompanyUpdate() {
           type="email"
           name="companyMail"
           id="companyMail"
-          placeholder="companyMail"
+          placeholder="Company Mail"
           value={formDataCorp.companyMail == null ? "":formDataCorp.companyMail}
           onChange={handleChange}
         />
@@ -64,7 +64,7 @@ export function CompanyUpdate() {
           type="text"
           name="companyNeighbourhood"
           id="companyNeighbourhood"
-          placeholder="companyNeighbourhood"
+          placeholder="Company Neighbourhood"
           value={formDataCorp.companyNeighbourhood == null ? "":formDataCorp.companyNeighbourhood}
           onChange={handleChange}
         />
@@ -72,7 +72,7 @@ export function CompanyUpdate() {
           type="text"
           name="companyDistrict"
           id="companyDistrict"
-          placeholder="companyDistrict"
+          placeholder="Company District"
           value={formDataCorp.companyDistrict == null ? "":formDataCorp.companyDistrict}
           onChange={handleChange}
         />
@@ -80,7 +80,7 @@ export function CompanyUpdate() {
           type="text"
           name="companyProvince"
           id="companyProvince"
-          placeholder="companyProvince"
+          placeholder="Company Province"
           value={formDataCorp.companyProvince == null ? "":formDataCorp.companyProvince}
           onChange={handleChange}
         />
@@ -88,7 +88,7 @@ export function CompanyUpdate() {
           type="text"
           name="companyCountry"
           id="companyCountry"
-          placeholder="companyCountry"
+          placeholder="Company Country"
           value={formDataCorp.companyCountry == null ? "":formDataCorp.companyCountry}
           onChange={handleChange}
         />
@@ -96,7 +96,7 @@ export function CompanyUpdate() {
           type="number"
           name="companyBuildingNumber"
           id="companyBuildingNumber"
-          placeholder="companyBuildingNumber"
+          placeholder="Company Building Number"
           value={formDataCorp.companyBuildingNumber == null ? "":formDataCorp.companyBuildingNumber}
           onChange={handleChange}
         />
@@ -104,7 +104,7 @@ export function CompanyUpdate() {
           type="number"
           name="companyApartmentNumber"
           id="companyApartmentNumber"
-          placeholder="companyApartmentNumber"
+          placeholder="Company Apartment Number"
           value={formDataCorp.companyApartmentNumber == null ? "":formDataCorp.companyApartmentNumber}
           onChange={handleChange}
         />
@@ -112,7 +112,7 @@ export function CompanyUpdate() {
           type="text"
           name="sector"
           id="sector"
-          placeholder="sector"
+          placeholder="Sector"
           value={formDataCorp.sector == null ? "":formDataCorp.sector}
           onChange={handleChange}
         />
