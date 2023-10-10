@@ -109,7 +109,6 @@ export function NavAdmin({setAktivePage}) {
   );
 }
 
-// ????? ne nasıl kuruldu company ? personel ? yol ? endpoint falan ?
 export function NavPersonel() {
   return (
     <section className="nav-personel">
@@ -130,7 +129,12 @@ export function NavPersonel() {
             <li>
               <NavLink to="/personel/update">Personel Update</NavLink>
             </li>
-            <li><a href="#">fotograf</a></li>
+            <li>
+              <NavLink to="/personel/personel-make-comment">Make Comment</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager">Manager Page</NavLink>
+            </li>
           </ul>
         </nav>
     </section>
@@ -161,6 +165,12 @@ export function NavManager() {
             </li>
             <li>
               <NavLink to="/manager/CompanyHolidays">Resmi Tatil Bilgileri</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/update-company-info">Update Company Info</NavLink>
+            </li>
+            <li>
+              <NavLink to="/personel">Your Page</NavLink>
             </li>
           </ul>
         </nav>

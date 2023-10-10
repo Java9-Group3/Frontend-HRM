@@ -58,7 +58,8 @@ const AdminApproveComments = () => {
       <ul>
         {pendingComments !=null && pendingComments.map((comment) => (
           <li key={comment.commentId}>
-            {`${comment.comment}`}
+            {``}
+            <span>Name: {comment.name}</span>
             <span>Comment: {comment.comment}</span>
             <button
               className="approve-btn"

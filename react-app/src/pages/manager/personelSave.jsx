@@ -35,7 +35,8 @@ export function RegisterEmployeeFrm() {
     surname: "",
     email: "",
     password: "",
-    base64Avatar: "",
+    phone: "",
+    wage: "",
   });
 
   function handleChange(e) {
@@ -58,7 +59,7 @@ export function RegisterEmployeeFrm() {
           type="text"
           name="name"
           id="name"
-          placeholder="name"
+          placeholder="Name"
           onChange={handleChange}
           value={employeeData.name}
         />
@@ -67,7 +68,7 @@ export function RegisterEmployeeFrm() {
           type="text"
           name="surname"
           id="surname"
-          placeholder="surname"
+          placeholder="Surname"
           onChange={handleChange}
           value={employeeData.surname}
         />
@@ -76,7 +77,7 @@ export function RegisterEmployeeFrm() {
           type="email"
           name="email"
           id="email"
-          placeholder="email"
+          placeholder="Email"
           onChange={handleChange}
           value={employeeData.email}
         />
@@ -85,20 +86,28 @@ export function RegisterEmployeeFrm() {
           type="password"
           name="password"
           id="password"
-          placeholder="password"
+          placeholder="Password"
           onChange={handleChange}
           value={employeeData.password}
         />
         <input
           type="text"
-          name="base64Avatar"
-          id="base64Avatar"
-          placeholder="base64Avatar"
+          name="phone"
+          id="phone"
+          placeholder="Phone Number"
           onChange={handleChange}
-          value={employeeData.base64Avatar}
+          value={employeeData.phone}
+        />
+        <input
+          type="text"
+          name="wage"
+          id="wage"
+          placeholder="Wage"
+          onChange={handleChange}
+          value={employeeData.wage}
         />
 
-        <button id="btn-register" type="submit">Kaydet </button>
+        <button id="btn-register" type="submit"> Kaydet </button>
       </form>
     </>
   );

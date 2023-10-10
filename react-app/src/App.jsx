@@ -47,6 +47,7 @@ import { useState } from "react";
 import RedirectPage from "./pages/redirect/redirect";
 import CompanyInfo2 from "./pages/manager/companyinfo2";
 import { CompanyUpdate } from "./pages/manager/update-company-info";
+import { PersonelMakeComment } from "./pages/personel/personel-make-comment";
 
 
 
@@ -104,6 +105,7 @@ function App() {
               <Route path="companyinfo" element={<CompanyInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
               
+              <Route path="personel-make-comment" element={<PersonelMakeComment />} />
             </Route>
 
             <Route path="/admin" element={<Admin aktivePage={aktivePage}/>}>
