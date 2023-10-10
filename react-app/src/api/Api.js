@@ -146,7 +146,6 @@ export function getPendingComments() {
     });
 }
 
-
 // ==========Backend connection REGISTER==========
 
 // ==========Visitor REGISTER==========
@@ -210,37 +209,15 @@ export function login(creadentials) {
   };
   return fetch(`${BASE_URL_AUTH_LOGIN}`, options)
     .then((resp) => {
-        
-      console.log(resp);
       return resp.json();
     })
     .then((data) => {
-      if(data.token){
         return data;
-      }
-      throw new Error(data.message)
     })
     .catch((err)=>{
         console.log(err.message);
     });
 }
-
-// export function getPersonelInfo2(token) { 
-//   return fetch(`${BASE_URL_USERPROFILE}/user-info/${token}`)
-//     .then((resp) => {
-        
-//       console.log(resp);
-//       return resp.json();
-//     })
-//     .then((data) => {
-//       if(data.message)
-//         throw new Error(data.message)
-//       return data;
-//     })
-//     .catch((err)=>{
-//         console.log(err.message);
-//     });
-// }
 
 // ==========Backend connection PERSONEL==========
 export function getPersonelList(token){
@@ -303,9 +280,6 @@ export function getPersonelInfo2(token) {
         console.log(err.message);
     });
 }
-
-
-
 
 //getcompanyinfo
 export function getCompanyInfo(token) { 
