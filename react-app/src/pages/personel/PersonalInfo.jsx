@@ -9,7 +9,8 @@ export function PersonalInfo() {
     name: "",
     surname: "",
     email: "",
-    password: "",
+    phone: "",
+    wage: "",
     token: token,
   };
   const [dataPersonel, setDataPersonel] = useState({ ...defaultPersonel });
@@ -32,7 +33,10 @@ export function PersonalInfo() {
           <strong>Email:</strong> {dataPersonel.email}
         </p>
         <p>
-          <strong>PhoneNumber:</strong> {dataPersonel.phone}
+          <strong>Phone Number:</strong> {dataPersonel.phone}
+        </p>
+        <p>
+          <strong>Wage:</strong> {dataPersonel.wage}
         </p>
       </div>
     </section>
