@@ -2,6 +2,8 @@ import { useState } from "react";
 import { login } from "../../api/Api";
 import { useNavigate } from "react-router";
 import { NavLogin } from "../../components/Nav";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function Login() {
   const navigate = useNavigate();
@@ -10,31 +12,51 @@ export function Login() {
     password: "",
   });
 
+  function notify() {
+    toast("Loging in");
+  }
+  function errNotify(message) {
+    toast.error(message);
+  }
+
   function handleChange(e) {
     setCredentials({ ...creadentials, [e.target.name]: e.target.value });
   }
 
   function handleLoginSubmit(e) {
     e.preventDefault();
-    login(creadentials).then((object) => {
-      if (object) {
-        //console.log(typeof token); //->> object geliyor JSONa çevircez.
-        localStorage.setItem("token", object.token);
-        //console.log(localStorage.getItem("token")); //->kontrol: string gelmesi lazım
-        if(object.roles.includes("ADMIN")){
-          navigate("/admin");
-        }
-        else if(object.roles.includes("MANAGER")){
-          navigate("/manager")
-        }
-        else if(object.roles.includes("PERSONEL")){
-          navigate("/personel")
-        }
-        else if(object.roles.includes("VISITOR")){
-          navigate("/home")
-        }
-        else{
-          navigate("/home");
+    login(creadentials).then((data) => {
+      if (data.message) {
+        errNotify(data.message);
+      } else if (data) {
+        localStorage.setItem("token", data.token);
+        switch (true) {
+          case data.roles.includes("ADMIN"):
+            notify();
+            setTimeout(() => {
+              navigate("/admin");
+            }, 1000);
+            break;
+          case data.roles.includes("MANAGER"):
+            notify();
+            setTimeout(() => {
+              navigate("/manager");
+            }, 1000);
+            break;
+          case data.roles.includes("PERSONEL"):
+            notify();
+            setTimeout(() => {
+              navigate("/personel");
+            }, 1000);
+            break;
+          case data.roles.includes("VISITOR"):
+            notify();
+            setTimeout(() => {
+              navigate("/home");
+            }, 1000);
+            break;
+          default:
+            navigate("/home");
         }
       }
     });
@@ -66,8 +88,10 @@ export function Login() {
         />
 
         <button id="btn-login" type="submit">
-          Login
+          {" "}
+          Login{" "}
         </button>
+        <ToastContainer />
       </form>
     </section>
   );
