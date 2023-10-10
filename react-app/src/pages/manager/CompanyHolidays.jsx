@@ -5,7 +5,6 @@ const CompanyHolidays = () => {
   const [holidays, setHolidays] = useState([]);
 
   useEffect(() => {
-    // API'den bekleyen yöneticileri getir
     getHolidays()
       .then((data) => setHolidays(data))
       .catch((error) =>

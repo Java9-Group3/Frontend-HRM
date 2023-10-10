@@ -152,7 +152,7 @@ export function NavManager() {
               <NavLink to="/manager/personelSave">Personel Ekle</NavLink>
             </li>
             <li>
-              <NavLink to="/manager/personelList">Personel Listesi</NavLink>
+              <NavLink to="/manager/PersonelList">Personel Listesi</NavLink>
             </li>
             <li>
               <NavLink to="/manager/CompanyProfitLoss">Şirketin Senelik Kar-Zarar Bilgisi</NavLink>

@@ -225,9 +225,39 @@ export function login(creadentials) {
     });
 }
 
-
+// export function getPersonelInfo2(token) { 
+//   return fetch(`${BASE_URL_USERPROFILE}/user-info/${token}`)
+//     .then((resp) => {
+        
+//       console.log(resp);
+//       return resp.json();
+//     })
+//     .then((data) => {
+//       if(data.message)
+//         throw new Error(data.message)
+//       return data;
+//     })
+//     .catch((err)=>{
+//         console.log(err.message);
+//     });
+// }
 
 // ==========Backend connection PERSONEL==========
+export function getPersonelList(token){
+  return fetch(`${BASE_URL_AUTH}/getPersonelList/${token}`)
+    .then((resp) => {
+      console.log(resp);
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+        throw new Error(data.message)
+      return data;
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    });
+}
 
 export function personelData(personelCredentials) {
   console.log(personelCredentials);
