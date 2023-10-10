@@ -12,6 +12,8 @@ export function PersonelUpdate() {
     surname: "",
     email: "",
     password: "",
+    phone: "",
+    wage: "",
     token: token,
   };
   const [dataPersonel, setDataPersonel] = useState({...defaultPersonel})
@@ -80,6 +82,22 @@ export function PersonelUpdate() {
           id="password"
           placeholder="password"
           value={dataPersonel.password}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          placeholder="Phone Number"
+          value={dataPersonel.phone}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="wage"
+          id="wage"
+          placeholder="Wage"
+          value={dataPersonel.wage}
           onChange={handleChange}
         />
         <button type="submit">Update</button>
