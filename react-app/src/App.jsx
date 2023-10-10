@@ -23,7 +23,6 @@ import { RegisterManager } from "./pages/register/manager";
 import { RegisterEmployeeFrm } from "./pages/manager/personelSave";
 import CompanyTotalLoss from "./pages/manager/CompanyTotalLoss";
 
-// import {CompanyHolidays} from "./pages/manager/CompanyHolidays";
 
 import CompanyHolidays from "./pages/manager/CompanyHolidays";
 
@@ -36,18 +35,20 @@ import { PersonalInfo } from "./pages/personel/PersonalInfo";
 
 import { CompanyInfo } from "./pages/personel/companyInfo";
 
-
 import { Routes, Route } from "react-router";
 
 import { NavBar, NavPersonel, NavAdmin, NavManager } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
-
+// import {PersonelList} from "./pages/manager/PersonelList";
+ import PersonelList from "./pages/manager/PersonelList";
 import Admin from "./pages/admin/admin";
 import { useState } from "react";
 import RedirectPage from "./pages/redirect/redirect";
 import CompanyInfo2 from "./pages/manager/companyinfo2";
 import { CompanyUpdate } from "./pages/manager/update-company-info";
+
+
 
 function App() {
   // Şu anki sayfa yolu bilgisini almak için useLocation hooku
@@ -102,6 +103,7 @@ function App() {
               <Route path="info" element={<PersonalInfo />} />
               <Route path="companyinfo" element={<CompanyInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
+              
             </Route>
 
             <Route path="/admin" element={<Admin aktivePage={aktivePage}/>}>
@@ -119,6 +121,7 @@ function App() {
               <Route path="update-company-info" element={<CompanyUpdate />} />
               <Route path="information" element=
               {<ShowCompanyInformationTable />} />
+              <Route path="PersonelList" element={<PersonelList />} />
               <Route path="findAll" element=
               {<ShowAllCompanyInformationTable />} />
               <Route path="CompanyProfitLoss" element={<CompanyProfitLoss />} /> 
