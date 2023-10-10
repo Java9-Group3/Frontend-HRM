@@ -40,8 +40,8 @@ import { Routes, Route } from "react-router";
 import { NavBar, NavPersonel, NavAdmin, NavManager } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
-// import {PersonelList} from "./pages/manager/PersonelList";
- import PersonelList from "./pages/manager/PersonelList";
+import {PersonelList} from "./pages/manager/PersonelList";
+//  import PersonelList from "./pages/manager/PersonelList";
 import Admin from "./pages/admin/admin";
 import { useState } from "react";
 import RedirectPage from "./pages/redirect/redirect";

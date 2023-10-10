@@ -244,18 +244,22 @@ export function login(creadentials) {
 
 // ==========Backend connection PERSONEL==========
 export function getPersonelList(token){
-  return fetch(`${BASE_URL_AUTH}/getPersonelList/${token}`)
+  return fetch(`http://localhost:9090/api/v1/auth/getPersonelList?token=${token}`)
     .then((resp) => {
-      console.log(resp);
+      if (!resp.ok) {
+        throw new Error("API yanıtı başarısız.");
+      }
       return resp.json();
     })
     .then((data) => {
-      if(data.message)
-        throw new Error(data.message)
+      console.log(data); // API yanıtını konsola yazdırın
+      if (data.message) {
+        throw new Error(data.message);
+      }
       return data;
     })
-    .catch((err)=>{
-        console.log(err.message);
+    .catch((err) => {
+      console.error(err.message);
     });
 }
 
