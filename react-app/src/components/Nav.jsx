@@ -133,6 +133,9 @@ export function NavPersonel() {
               <NavLink to="/personel/personel-make-comment">Make Comment</NavLink>
             </li>
             <li>
+              <NavLink to="/personel/ExpensePersonel">Make Expense</NavLink>
+            </li>
+            <li>
               <NavLink to="/manager">Manager Page</NavLink>
             </li>
           </ul>

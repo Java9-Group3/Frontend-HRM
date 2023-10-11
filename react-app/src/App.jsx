@@ -30,6 +30,7 @@ import { Login } from "./pages/login/login";
 
 //personel **********************************************************
 import { PersonelUpdate } from "./pages/personel/update";
+import { ExpensePersonel } from "./pages/personel/ExpensePersonel";
 
 import { PersonalInfo } from "./pages/personel/PersonalInfo";
 
@@ -105,6 +106,7 @@ function App() {
               <Route path="companyinfo" element={<CompanyInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
               <Route path="CompanyHolidays" element={<CompanyHolidays />} />
+              <Route path="ExpensePersonel" element={<ExpensePersonel />} />
               
               <Route path="personel-make-comment" element={<PersonelMakeComment />} />
             </Route>
