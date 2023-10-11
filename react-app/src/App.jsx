@@ -104,6 +104,7 @@ function App() {
               <Route path="info" element={<PersonalInfo />} />
               <Route path="companyinfo" element={<CompanyInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
+              <Route path="CompanyHolidays" element={<CompanyHolidays />} />
               
               <Route path="personel-make-comment" element={<PersonelMakeComment />} />
             </Route>
