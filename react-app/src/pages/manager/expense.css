@@ -1,0 +1,53 @@
+.admin-panel-pending {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .admin-panel-pending h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .admin-panel-pending ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-panel-pending li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin-panel-pending li span {
+    flex: 1;
+  }
+  
+  .admin-panel-pending button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .admin-panel-pending .approve-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .admin-panel-pending .reject-btn {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  

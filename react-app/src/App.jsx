@@ -33,16 +33,15 @@ import { PersonelUpdate } from "./pages/personel/update";
 import { ExpensePersonel } from "./pages/personel/ExpensePersonel";
 
 import { PersonalInfo } from "./pages/personel/PersonalInfo";
-
+import ManagerApproveExpenses from "./pages/manager/managerExpense";
 import { CompanyInfo } from "./pages/personel/companyInfo";
-
+import ManagerExpenseAll from "./pages/manager/ManagerExpenseAll";
 import { Routes, Route } from "react-router";
 
 import { NavBar, NavPersonel, NavAdmin, NavManager } from "./components/Nav";
 
 import { useLocation } from "react-router-dom";
 import {PersonelList} from "./pages/manager/PersonelList";
-//  import PersonelList from "./pages/manager/PersonelList";
 import Admin from "./pages/admin/admin";
 import { useState } from "react";
 import RedirectPage from "./pages/redirect/redirect";
@@ -138,6 +137,10 @@ function App() {
               {<SaveCompanyRequestDto />} />
               <Route path="personelSave" element=
               {<RegisterEmployeeFrm/>} />
+              <Route path="ManagerExpense" element=
+              {<ManagerApproveExpenses/>} />
+              <Route path="ManagerExpenseAll" element=
+              {<ManagerExpenseAll/>} />
             </Route>
 
           </Routes>
