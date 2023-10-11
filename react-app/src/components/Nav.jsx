@@ -173,6 +173,12 @@ export function NavManager() {
               <NavLink to="/manager/update-company-info">Update Company Info</NavLink>
             </li>
             <li>
+              <NavLink to="/manager/ManagerExpense">Bekleyen Harcama Istekleri</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/ManagerExpenseAll">Tüm Harcama Istekleri</NavLink>
+            </li>
+            <li>
               <NavLink to="/personel">Your Page</NavLink>
             </li>
           </ul>
