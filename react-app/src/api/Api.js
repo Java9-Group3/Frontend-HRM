@@ -186,7 +186,7 @@ export function registerManager(formDataCorp) {
     return resp.json();
   })
   .then((data) => {
-    if(data.activationCode){
+    if(data.authId){
       return data;
     }
     throw new Error(data.message)
@@ -266,6 +266,23 @@ export function personelData(personelCredentials) {
 
 export function getPersonelInfo2(token) { 
   return fetch(`${BASE_URL_USERPROFILE}/user-info/${token}`)
+    .then((resp) => {
+        
+      console.log(resp);
+      return resp.json();
+    })
+    .then((data) => {
+      if(data.message)
+        throw new Error(data.message)
+      return data;
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    });
+}
+
+export function getShiftAndBreakInfo(token) { 
+  return fetch(`${BASE_URL_USERPROFILE}/get-shift-break-info/${token}`)
     .then((resp) => {
         
       console.log(resp);

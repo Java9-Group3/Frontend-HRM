@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { registerManager } from "../../api/Api";
 import { NavRegister } from "../../components/Nav";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function RegisterManager() {
   const navigate = useNavigate();
@@ -15,6 +17,13 @@ export function RegisterManager() {
     taxNumber: "",
   });
 
+  function notify() {
+    toast("Register Success");
+  }
+  function errNotify() {
+    toast.error("Unexpected Error. Check the parameters or mail box.");
+  }
+
   function handleChange(e) {
     setFormDataCorp({ ...formDataCorp, [e.target.name]: e.target.value });
   }
@@ -24,7 +33,12 @@ export function RegisterManager() {
     registerManager(formDataCorp).then((data) => {
       if (data) {
         console.log(data);
-        navigate("/home");
+        notify();
+        setTimeout(() => {
+          navigate("/login/login");
+        }, 1000);
+      }else{
+        errNotify();
       }
     });
   }
@@ -97,6 +111,7 @@ export function RegisterManager() {
         <button id="btn-register" type="submit">
           Register
         </button>
+        <ToastContainer />
       </form>
     </section>
   );

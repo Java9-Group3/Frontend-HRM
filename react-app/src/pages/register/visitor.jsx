@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { register } from "../../api/Api";
 import { NavRegister } from "../../components/Nav";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function RegisterVisitor() {
   const navigate = useNavigate();
@@ -13,6 +15,13 @@ export function RegisterVisitor() {
     repassword: "",
   });
 
+  function notify() {
+    toast("Register Success");
+  }
+  function errNotify() {
+    toast.error("Unexpected Error. Check the parameters or mail box.");
+  }
+
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -22,7 +31,12 @@ export function RegisterVisitor() {
     register(formData).then((data) => {
       if (data) {
         console.log(data);
-        navigate("/home");
+        notify();
+        setTimeout(() => {
+          navigate("/home");
+        }, 1000);
+      }else{
+        errNotify();
       }
     });
   }
@@ -79,6 +93,7 @@ export function RegisterVisitor() {
         <button id="btn-register" type="submit">
           Register
         </button>
+        <ToastContainer />
       </form>
     </section>
   );

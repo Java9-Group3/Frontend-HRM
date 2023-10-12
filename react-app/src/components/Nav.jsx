@@ -110,6 +110,8 @@ export function NavAdmin({setAktivePage}) {
 }
 
 export function NavPersonel() {
+  const roles = localStorage.getItem("roles").split(",");
+  
   return (
     <section className="nav-personel">
       <nav>
@@ -124,7 +126,7 @@ export function NavPersonel() {
               <NavLink to="/personel/holiday">Public Holidays Info</NavLink>
             </li>
             <li>
-              <NavLink to="/personel/shiftandbreaks">Shift-Break Info</NavLink>
+              <NavLink to="/personel/get-shift-break-info">Shift-Break Info</NavLink>
             </li>
             <li>
               <NavLink to="/personel/update">Personel Update</NavLink>
@@ -132,9 +134,11 @@ export function NavPersonel() {
             <li>
               <NavLink to="/personel/personel-make-comment">Make Comment</NavLink>
             </li>
-            <li>
+            {roles.includes("MANAGER") &&
+              <li>
               <NavLink to="/manager">Manager Page</NavLink>
             </li>
+            }
           </ul>
         </nav>
     </section>

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { getPersonelInfo2, personelData } from "../../api/Api";
 import "./personel.css"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function PersonelUpdate() {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ export function PersonelUpdate() {
     password: "",
     phone: "",
     wage: "",
+    jobShift: "",
+    jobBreak: "",
     token: token,
   };
   const [dataPersonel, setDataPersonel] = useState({...defaultPersonel})
@@ -21,6 +24,10 @@ export function PersonelUpdate() {
   useEffect(()=>{
     getPersonelInfo2(token).then(data=>setDataPersonel({...data, token:token}));
   }, [])
+
+  function errNotify() {
+    toast.error("Unexpected Error. Check the parameters or login! ");
+  }
 
   function handleChange(e) {
     setDataPersonel({ ...dataPersonel, [e.target.name]: e.target.value });
@@ -41,7 +48,10 @@ export function PersonelUpdate() {
     personelData(dataPersonel).then((data) => {
       if (data) {
         console.log(data);
-        navigate("/personel");
+      }
+      navigate("/personel/info");
+      if(!data){
+        errNotify();
       }
     });
   };
@@ -89,7 +99,7 @@ export function PersonelUpdate() {
           name="phone"
           id="phone"
           placeholder="Phone Number"
-          value={dataPersonel.phone}
+          value={dataPersonel.phone == null ? "" : dataPersonel.phone}
           onChange={handleChange}
         />
         <input
@@ -97,10 +107,27 @@ export function PersonelUpdate() {
           name="wage"
           id="wage"
           placeholder="Wage"
-          value={dataPersonel.wage}
+          value={dataPersonel.wage == null ? "" : dataPersonel.wage}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="jobShift"
+          id="jobShift"
+          placeholder="Job Shift"
+          value={dataPersonel.jobShift == null ? "" : dataPersonel.jobShift}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="jobBreak"
+          id="jobBreak"
+          placeholder="Job Break"
+          value={dataPersonel.jobBreak == null ? "" : dataPersonel.jobBreak}
           onChange={handleChange}
         />
         <button type="submit">Update</button>
+        <ToastContainer />
       </form>
     </section>
   );

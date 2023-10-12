@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Backend Baglantisi
 
@@ -27,7 +30,7 @@ function registerEmployeeMethod(employeeData) {
 
 // =============Sayfa Componentleri============
 export function RegisterEmployeeFrm() {
-  // const navigate= useNavigate();
+  const navigate= useNavigate();
 
   const [employeeData, setEmployeeData] = useState({
     // token: localStorage.getItem("token"),
@@ -37,7 +40,13 @@ export function RegisterEmployeeFrm() {
     password: "",
     phone: "",
     wage: "",
+    jobShift: "",
+    jobBreak: "",
   });
+
+  function errNotify() {
+    toast.error("Unexpected Error. Check the parameters and personal list. ");
+  }
 
   function handleChange(e) {
     setEmployeeData({ ...employeeData, [e.target.name]: e.target.value });
@@ -48,11 +57,14 @@ export function RegisterEmployeeFrm() {
     registerEmployeeMethod(employeeData).then((data) => {
         if (data) {
           console.log(data);
+          navigate("/manager/PersonelList");
+        } else {
+          errNotify();
         }
       });
   }
   return (
-    <>
+    <section>
       <h2>Personel Kaydet</h2>
       <form onSubmit={handleRegisterPersonelSubmit}>
         <input
@@ -106,9 +118,26 @@ export function RegisterEmployeeFrm() {
           onChange={handleChange}
           value={employeeData.wage}
         />
+        <input
+          type="text"
+          name="jobShift"
+          id="jobShift"
+          placeholder="Job Shift"
+          onChange={handleChange}
+          value={employeeData.jobShift}
+        />
+        <input
+          type="text"
+          name="jobBreak"
+          id="jobBreak"
+          placeholder="Job Break"
+          onChange={handleChange}
+          value={employeeData.jobBreak}
+        />
 
         <button id="btn-register" type="submit"> Kaydet </button>
+        <ToastContainer />
       </form>
-    </>
+    </section>
   );
 }

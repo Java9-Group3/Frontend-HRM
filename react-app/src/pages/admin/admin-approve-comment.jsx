@@ -5,9 +5,18 @@ import {
   rejectComment,
 } from "../../api/Api";
 import "./admin.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminApproveComments = () => {
   const [pendingComments, setPendingComments] = useState([]);
+
+  function notify() {
+    toast("Update success!");
+  }
+  function errNotify() {
+    toast.error("Comment approval failed");
+  }
 
   useEffect(() => {
     // API'den bekleyen yöneticileri getir
@@ -35,7 +44,7 @@ const AdminApproveComments = () => {
   };
 
   const handleRejectComment = (commentId) => {
-    // Yöneticiyi reddet
+    // Comment reddet
     rejectComment(commentId)
       .then((unsuccess) => {
         if (unsuccess) {
@@ -73,6 +82,7 @@ const AdminApproveComments = () => {
             >
               Reject
             </button>
+            <ToastContainer />
           </li>
         ))}
       </ul>
