@@ -137,6 +137,9 @@ export function NavPersonel() {
              <li>
               <NavLink to="/personel/ExpensePersonel">Make Expense</NavLink>
             </li>
+            <li>
+              <NavLink to="/personel/AdvancePersonel">Make Advance</NavLink>
+            </li>
             { roles.includes("MANAGER") &&
             <li>
               <NavLink to="/manager">Manager Page</NavLink>
@@ -180,6 +183,9 @@ export function NavManager() {
             </li>
             <li>
               <NavLink to="/manager/ManagerExpenseAll">Tüm Harcama Istekleri</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/ManagerAdvance">Bekleyen Avans Istekleri</NavLink>
             </li>
             <li>
               <NavLink to="/personel">Your Page</NavLink>
