@@ -123,7 +123,7 @@ export function NavPersonel() {
               <NavLink to="/personel/companyinfo">Company Info</NavLink>
             </li>
             <li>
-              <NavLink to="/personel/holiday">Public Holidays Info</NavLink>
+              <NavLink to="/personel/CompanyHolidays">Public Holidays Info</NavLink>
             </li>
             <li>
               <NavLink to="/personel/get-shift-break-info">Shift-Break Info</NavLink>
@@ -134,11 +134,13 @@ export function NavPersonel() {
             <li>
               <NavLink to="/personel/personel-make-comment">Make Comment</NavLink>
             </li>
-            {roles.includes("MANAGER") &&
-              <li>
-              <NavLink to="/manager">Manager Page</NavLink>
+             <li>
+              <NavLink to="/personel/ExpensePersonel">Make Expense</NavLink>
             </li>
-            }
+            { roles.includes("MANAGER") &&
+            <li>
+              <NavLink to="/manager">Manager Page</NavLink>
+            </li> }
           </ul>
         </nav>
     </section>
@@ -172,6 +174,12 @@ export function NavManager() {
             </li>
             <li>
               <NavLink to="/manager/update-company-info">Update Company Info</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/ManagerExpense">Bekleyen Harcama Istekleri</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manager/ManagerExpenseAll">Tüm Harcama Istekleri</NavLink>
             </li>
             <li>
               <NavLink to="/personel">Your Page</NavLink>
