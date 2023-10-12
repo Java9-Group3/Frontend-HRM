@@ -40,7 +40,7 @@ export function ExpensePersonel() {
     password: "",
     phone: "",
     wage: "",
-  });
+  }); //burası nasıl çalışıyor :D ?
 
   function handleChange(e) {
     setEmployeeData({ ...employeeData, [e.target.name]: e.target.value });

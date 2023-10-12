@@ -29,11 +29,12 @@ import { Login } from "./pages/login/login";
 //personel **********************************************************
 import { PersonelUpdate } from "./pages/personel/update";
 import { ExpensePersonel } from "./pages/personel/ExpensePersonel";
-
+import { AdvancePersonel } from "./pages/personel/AdvancePersonel";
 import { PersonalInfo } from "./pages/personel/PersonalInfo";
 import ManagerApproveExpenses from "./pages/manager/managerExpense";
 import { CompanyInfo } from "./pages/personel/companyInfo";
 import ManagerExpenseAll from "./pages/manager/ManagerExpenseAll";
+import ManagerApproveAdvance from "./pages/manager/managerAdvance";
 import { Routes, Route } from "react-router";
 
 import { NavBar, NavPersonel, NavAdmin, NavManager } from "./components/Nav";
@@ -106,7 +107,8 @@ function App() {
               <Route path="update" element={<PersonelUpdate />} />
               <Route path="CompanyHolidays" element={<CompanyHolidays />} />
               <Route path="ExpensePersonel" element={<ExpensePersonel />} />
-              
+              <Route path="AdvancePersonel" element={<AdvancePersonel />} />
+
               <Route path="personel-make-comment" element={<PersonelMakeComment />} />
             </Route>
 
@@ -141,6 +143,8 @@ function App() {
               {<ManagerApproveExpenses/>} />
               <Route path="ManagerExpenseAll" element=
               {<ManagerExpenseAll/>} />
+              <Route path="ManagerAdvance" element=
+              {<ManagerApproveAdvance/>} />
             </Route>
 
           </Routes>
