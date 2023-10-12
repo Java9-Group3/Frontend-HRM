@@ -4,7 +4,6 @@ import{
     approveAdvance,
     rejectAdvance,
 } from "../../api/advanceApi";
-import "./admin.css";
 
 
 const ManagerApproveAdvance = () => {
