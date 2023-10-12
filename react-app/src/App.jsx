@@ -13,8 +13,6 @@ import Depts from "./pages/manager/Depts";
 
 import CompanyProfitLoss from "./pages/manager/CompanyProfitLoss"; 
 
-import {ShowPersonnelCompanyInformation } from "./pages/manager/getPersonnelCompanyInformation";
-
 import { SaveCompanyRequestDto } from "./pages/manager/saveCompanyRequestDto";
 //COMPANY**********************************************************
 import { RegisterVisitor } from "./pages/register/visitor";
@@ -48,6 +46,7 @@ import RedirectPage from "./pages/redirect/redirect";
 import CompanyInfo2 from "./pages/manager/companyinfo2";
 import { CompanyUpdate } from "./pages/manager/update-company-info";
 import { PersonelMakeComment } from "./pages/personel/personel-make-comment";
+import { ShiftAndBreakInfo } from "./pages/personel/shift-break";
 
 
 
@@ -103,6 +102,7 @@ function App() {
             <Route path="/personel">
               <Route path="info" element={<PersonalInfo />} />
               <Route path="companyinfo" element={<CompanyInfo />} />
+              <Route path="get-shift-break-info" element={<ShiftAndBreakInfo />} />
               <Route path="update" element={<PersonelUpdate />} />
               <Route path="CompanyHolidays" element={<CompanyHolidays />} />
               <Route path="ExpensePersonel" element={<ExpensePersonel />} />

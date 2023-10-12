@@ -27,7 +27,7 @@ export function companyData(companyCredentials) {
   }
   
   export function getCompanyInfo(token) { 
-    return fetch(`${BASE_URL_COMPANY}/show-company-information?token=${token}`)
+    return fetch(`${BASE_URL_COMPANY}/show-company-information/${token}`)
       .then((resp) => {
         console.log(resp);
         return resp.json();

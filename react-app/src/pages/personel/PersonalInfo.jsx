@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import { getPersonelInfo2 } from "../../api/Api";
 import "./personel.css";
 
@@ -11,6 +10,8 @@ export function PersonalInfo() {
     email: "",
     phone: "",
     wage: "",
+    jobShift: "",
+    jobBreak: "",
     token: token,
   };
   const [dataPersonel, setDataPersonel] = useState({ ...defaultPersonel });
@@ -37,6 +38,12 @@ export function PersonalInfo() {
         </p>
         <p>
           <strong>Wage:</strong> {dataPersonel.wage}
+        </p>
+        <p>
+          <strong>Job Shift:</strong> {dataPersonel.jobShift}
+        </p>
+        <p>
+          <strong>Job Break:</strong> {dataPersonel.jobBreak}
         </p>
       </div>
     </section>

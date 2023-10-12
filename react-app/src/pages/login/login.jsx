@@ -30,6 +30,7 @@ export function Login() {
         errNotify(data.message);
       } else if (data) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("roles", data.roles);
         switch (true) {
           case data.roles.includes("ADMIN"):
             notify();
